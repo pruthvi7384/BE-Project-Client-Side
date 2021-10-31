@@ -1,0 +1,32 @@
+/* =================Import Google Fonts==================== */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap');
+    /* font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif; */
+/* =============X====Import Google Fonts====X================ */
+
+/* ================Navigation Bar Styling=============== */
+    .navbar {
+        padding : 0px !important;
+        background-color:#1B4F72;
+    }
+    .logo{
+        width:50px;
+        object-fit: contain;
+    }
+    .logo__title{
+        color: #52BE80; 
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size:20px;
+    }
+    .navbar-collapse{
+        justify-content: space-evenly !important;
+        text-align: center;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        color: #ffffff9f;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+    }
+/* ============X====Navigation Bar Styling===X============ */
