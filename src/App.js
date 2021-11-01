@@ -1,5 +1,6 @@
 import React from 'react';
-import NavigationBar from './Components/NavigationBar';
+import Footer from './Components/Footer/Footer';
+import NavigationBar from './Components/NavBar/NavigationBar';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
           <h1 className="text-success">Early prediction of lifestyle diseases</h1>
           <h2 className="text-info">Started Implementation Front End Using React</h2>
       </div>
+      <Footer/>
     </>
   );
 }
