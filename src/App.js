@@ -18,36 +18,42 @@ function App() {
           <Route exact path="/">
               <NavigationBar path="/"/>
               <Home/>
+              <Footer/>
           </Route>
           <Route exact path="/about">
               <NavigationBar path="/about"/>
               <About/>
+              <Footer/>
           </Route>
           <Route exact path="/symptomschecker">
               <NavigationBar path="/symptomschecker"/>
               <SymtomsChecker/>
+              <Footer/>
           </Route>
           <Route exact path="/diseases">
               <NavigationBar path="/diseases"/>
               <Disease/>
+              <Footer/>
           </Route>
           <Route exact path="/contact">
               <NavigationBar path="/contact"/>
               <Contact/>
+              <Footer/>
           </Route>
           <Route exact path="/signup">
               <NavigationBar path="/signup"/>
               <SignUp/>
+              <Footer/>
           </Route>
           <Route exact path="/login">
               <NavigationBar path="/login"/>
               <SignIn/>
+              <Footer/>
           </Route>
           <Route>
               <Errore/>
           </Route>
       </Switch>
-      <Footer/>
     </>
   );
 }
