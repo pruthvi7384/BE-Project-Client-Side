@@ -12,6 +12,7 @@ body{
 }
 ul{
   list-style-type: none;
+  padding-left: 0;
 }
 a{
   text-decoration: inherit !important;

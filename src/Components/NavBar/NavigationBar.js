@@ -20,7 +20,7 @@ function NavigationBar({path}) {
     return (
         <Navbar sticky="top" collapseOnSelect expand="lg">
             <Container>
-              <Link className="navbar-brand " to="/"><i className="fas fa-laptop-medical"></i> <span> E </span> Health</Link>
+              <Link className="navbar-brand " to="/"><i className="fas fa-laptop-medical"></i> <span> E </span> Health Care</Link>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                 <Nav>
