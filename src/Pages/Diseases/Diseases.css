@@ -1,0 +1,13 @@
+.Diseases_All #Diseases_heading{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.Diseases_All #Diseases_heading h3{
+    font-weight: 600;
+    color: #008aff;
+}
+.Diseases_All #Diseases_heading p{
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #928f88;
+}

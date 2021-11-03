@@ -50,7 +50,7 @@ function SignUp() {
         setUser({...user, [name]:value});
     }
     const signup = (e)=>{
-
+        e.preventDefault();
     }
     return (
         <Container className="mt-4 account_form">

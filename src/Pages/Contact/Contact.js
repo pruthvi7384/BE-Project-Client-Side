@@ -42,7 +42,7 @@ function Contact() {
         setContact({...contact, [name]:value});
     }
     const contact_Info = (e)=>{
-
+        e.preventDefault();
     }
     const contact_Details = [
         {
