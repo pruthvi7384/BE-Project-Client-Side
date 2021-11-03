@@ -17,3 +17,7 @@ ul{
 a{
   text-decoration: inherit !important;
 }
+
+html{
+  scroll-behavior: smooth;
+}
