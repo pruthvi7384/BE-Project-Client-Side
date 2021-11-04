@@ -6,10 +6,11 @@ import About from './Pages/About/About';
 import SignIn from './Pages/Account/SignIn';
 import SignUp from './Pages/Account/SignUp';
 import Contact from './Pages/Contact/Contact';
-import Disease from './Pages/Diseases/Diseases';
+import Diseases from './Pages/Diseases/Diseases';
 import Errore from './Pages/Errore/Errore';
 import Home from './Pages/Home/Home';
 import SymtomsChecker from './Pages/SymtomsChecker/SymtomsChecker';
+import Disease from './SubPages/Disease/Disease';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
           </Route>
           <Route exact path="/diseases">
               <NavigationBar path="/diseases"/>
-              <Disease/>
+              <Diseases/>
               <Footer/>
           </Route>
           <Route exact path="/contact">
@@ -48,6 +49,11 @@ function App() {
           <Route exact path="/login">
               <NavigationBar path="/login"/>
               <SignIn/>
+              <Footer/>
+          </Route>
+          <Route exact path="/disease/:id">
+              <NavigationBar/>
+              <Disease/>
               <Footer/>
           </Route>
           <Route>

@@ -11,3 +11,50 @@
     text-transform: uppercase;
     color: #928f88;
 }
+.Diseases_All .card {
+    width: 100%;
+    margin:10px 0px!important;
+    border:none !important;
+    border-radius: 0.25rem;
+    box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+}
+.Diseases_All .card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color:#111111;
+}
+.Diseases_All .card-text {
+    font-weight: 400;
+    color:#444444;
+    text-align: justify;
+}
+.Diseases_All .Footer__Card{
+    border-top:1px solid rgba(0, 0, 0, 0.226);;
+}
+.Diseases_All .Footer__Card ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding:10px;
+    align-items: center;
+    cursor: pointer;
+}
+.Diseases_All .Footer__Card ul li a{
+    font-size: 14px;
+    color: #777777;
+    text-transform: capitalize;
+    font-weight: 400;
+    padding:3px;
+}
+.Diseases_All .Footer__Card ul li a i{
+    font-size: 16px;
+    color: #008aff;
+}
+.Diseases_All .Footer__Card ul li a .btn{
+    background-color: #008aff;
+    font-family: 'Poppins', sans-serif;
+    font-weight:500;
+    font-size:14px;
+    margin-top:5px;
+}

@@ -5,6 +5,7 @@ import './SearchBar.css'
 function SearchBar() {
     const [search, setSearch] = useState();
     const inputhandler = (e)=>{
+        e.preventDefault();
         setSearch(e.target.value);
     }
     return (

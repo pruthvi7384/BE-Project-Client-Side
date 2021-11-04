@@ -1,0 +1,34 @@
+.disease_page .disease_heading{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.disease_page .disease_heading h3{
+    font-weight: 600;
+    color: #111111;
+}
+.disease_page .disease_heading h3 span{
+    color: #008aff;
+}
+.disease_page .disease_heading p{
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #928f88;
+}
+.disease_page .disease_heading p span{
+    color: #008aff;
+}
+.disease_page .disease_info{
+    align-items: center;
+}
+.disease_page .disease_info .disease_image {
+    margin-top:20px;
+    width: 100%; 
+    object-fit: contain;
+}
+.disease_page .disease_info p{
+    margin-top:20px;
+   font-family: 'Poppins', sans-serif;
+   font-weight: 400;
+   color:#444444;
+   text-align: justify;
+}
