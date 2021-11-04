@@ -31,7 +31,6 @@ function Diseases() {
                                     <ul>
                                         <li><Link to="/diseases"><i className="fas fa-user-md"></i> <span>{item.doctore_name}</span></Link></li>
                                         <li><Link to="/diseases"><i className="far fa-clock"></i> <span>{item.data_updated_at}</span></Link></li>
-                                        <li><Link to="/diseases"><i className="far fa-comments"></i> <span>{item.comments}</span></Link></li>
                                         <li><Link to={`/disease/${item._id}`}><Button >Read More</Button></Link></li>
                                     </ul>
                                 </div>

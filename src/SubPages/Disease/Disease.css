@@ -1,34 +1,99 @@
-.disease_page .disease_heading{
-    text-align: center;
+/* ===================Disease Page Styling============== */
+    .disease_page{
+        box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+        padding: 20px;
+        border-radius: 0.25rem;
+    }
+    .disease_page .disease_heading{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    .disease_page .disease_heading h3{
+        font-weight: 600;
+        color: #111111;
+    }
+    .disease_page .disease_heading h3 span{
+        color: #008aff;
+    }
+    .disease_page .disease_heading p{
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #928f88;
+    }
+    .disease_page .disease_heading p span{
+        color: #008aff;
+    }
+    .disease_page .disease_info{
+        align-items: center;
+    }
+    .disease_page .disease_info .disease_image {
+        margin-top:20px;
+        width: 100%; 
+        object-fit: contain;
+    }
+    .disease_page .disease_info p{
+        margin-top:20px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        color:#444444;
+        text-align: justify;
+    }
+    .disease_page .disease_synptoms{
+        justify-content: center;
+    }
+    .disease_page .disease_synptoms h4{
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        font-weight: 600;
+        color: #444349;
+    }
+    .disease_page .disease_synptoms h4 span{
+        color: #008aff;
+    }
+    .disease_page .disease_synptoms p{
+        margin-bottom: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        color:#444444;
+        cursor: pointer;
+        text-align: justify;
+    }
+    .disease_page .disease_synptoms p span{
+        color: #008aff;
+        margin-right: 5px;
+    }
+    .disease_add_info{
+        align-items: center;
+        padding:20px;
+        border-radius: 0.25rem;
+        box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+    }
+    .disease_add_info .profile_doctor_img img{
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit: fill;
+  }
+  .disease_add_info .doctor_info{
     font-family: 'Poppins', sans-serif;
-}
-.disease_page .disease_heading h3{
+  }
+  .disease_add_info .doctor_info p{
+      margin-bottom: 8px !important;
+      font-weight: 500;
+      color:#444444;
+      text-align: justify;
+  }
+  .disease_add_info .doctor_info h5{
+    color: #008aff;
     font-weight: 600;
+  }
+  .disease_add_info .doctor_info h6{
     color: #111111;
-}
-.disease_page .disease_heading h3 span{
-    color: #008aff;
-}
-.disease_page .disease_heading p{
     font-weight: 600;
-    text-transform: uppercase;
-    color: #928f88;
-}
-.disease_page .disease_heading p span{
-    color: #008aff;
-}
-.disease_page .disease_info{
-    align-items: center;
-}
-.disease_page .disease_info .disease_image {
-    margin-top:20px;
-    width: 100%; 
-    object-fit: contain;
-}
-.disease_page .disease_info p{
-    margin-top:20px;
-   font-family: 'Poppins', sans-serif;
-   font-weight: 400;
-   color:#444444;
-   text-align: justify;
-}
+  }
+  .disease_btns .btn{
+    background-color: #008aff;
+    font-family: 'Poppins', sans-serif;
+    font-weight:500;
+  }
+/* ================X===Disease Page Styling===X=========== */

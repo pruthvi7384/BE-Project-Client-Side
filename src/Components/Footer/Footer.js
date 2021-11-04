@@ -12,7 +12,7 @@ function Footer() {
       ]
       const HELP = [
         { to: '/symptomschecker', text: 'Check Your Symptoms.' },
-        { to: '/chats', text: 'Lets Clear Your Douts.' },
+        { to: '/quetion', text: 'Lets Clear Your Douts.' },
         { to: '/feedbacks', text: 'What Pepole Says ?' },
         { to: '/info', text: 'Why Important This Platform?' },
       ]

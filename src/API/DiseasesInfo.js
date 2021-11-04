@@ -8,7 +8,6 @@ function DiseasesInfo() {
             "data_updated_at": "03 Novamber 2021",
             "doctore_id":"",
             "doctore_name":"Pruthviraj Rajput",
-            "comments":200,
             "image":"https://sahyadrihospital.com/wp-content/uploads/2021/04/Be-aware-of-malaria-the-deadly-disease.jpg",
             "details":
                 { 
