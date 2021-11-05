@@ -14,7 +14,7 @@ function Footer() {
         { to: '/symptomschecker', text: 'Check Your Symptoms.' },
         { to: '/chat', text: 'Lets Clear Your Douts.' },
         { to: '/', text: 'What Pepole Says ?' },
-        { to: '/info', text: 'Why Important This Platform?' },
+        { to: '/about', text: 'Why Important This Platform?' },
       ]
     return (
      <Container fluid className="Footer mt-5">

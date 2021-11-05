@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import { Container, Row, Col, FloatingLabel, Form, Button, InputGroup } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import './Chat.css'
 function Chat() {
    const [messages,setmessage] = useState([
