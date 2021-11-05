@@ -57,7 +57,7 @@ function App() {
               <Disease/>
               <Footer/>
           </Route>
-          <Route exact to="/chat">
+          <Route exact path="/chat">
                <NavigationBar/>
                <Chat/>
           </Route>
