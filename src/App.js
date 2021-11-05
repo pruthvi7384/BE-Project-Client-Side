@@ -10,6 +10,7 @@ import Diseases from './Pages/Diseases/Diseases';
 import Errore from './Pages/Errore/Errore';
 import Home from './Pages/Home/Home';
 import SymtomsChecker from './Pages/SymtomsChecker/SymtomsChecker';
+import Chat from './SubPages/Chat/Chat';
 import Disease from './SubPages/Disease/Disease';
 
 function App() {
@@ -55,6 +56,10 @@ function App() {
               <NavigationBar/>
               <Disease/>
               <Footer/>
+          </Route>
+          <Route to="/chat">
+               <NavigationBar/>
+               <Chat/>
           </Route>
           <Route>
               <Errore/>

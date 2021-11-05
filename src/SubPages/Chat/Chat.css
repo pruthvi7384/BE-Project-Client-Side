@@ -1,0 +1,79 @@
+/* =============Chat Room Window Styling================ */
+    .chat_roome #chat_roome_headding{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    .chat_roome #chat_roome_headding h3{
+        font-weight: 600;
+        color: #008aff;
+    }
+    .chat_roome #chat_roome_headding p{
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #928f88;
+    }
+    .chat_rom_input{
+        display:flex;
+        padding:5px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-top:1px solid lightgray;
+        background-color: #FFFFFF;
+        box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+      }
+      .chat_inputFiled{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        flex: 1;
+        padding:10px;
+        outline: none;
+        border:none;
+        color: #333333;
+      }
+      .send_button{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        color: #008aff;
+        margin-right:20px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .chat_messages{
+          margin:10px 0px;
+      }
+      .chat_messages p{
+        margin-bottom: 0px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #008aff;
+        text-transform: capitalize;
+        font-size: 16px;
+      }
+      .chat_messages p span{
+        color:#111111;
+        font-size: 14px;
+      } 
+      .chat_messages .message_other{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #444444;
+        background-color: #d3d3d3;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+      }
+      .chat_messages .message_user{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        margin-left: auto;
+        background-color:#29b3cd;
+        padding:15px;
+        border-radius:5px;
+        color:white;
+        box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+      }
+/* ===========X==Chat Room Window Styling===X============= */
