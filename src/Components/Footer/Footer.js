@@ -12,8 +12,8 @@ function Footer() {
       ]
       const HELP = [
         { to: '/symptomschecker', text: 'Check Your Symptoms.' },
-        { to: '/quetion', text: 'Lets Clear Your Douts.' },
-        { to: '/feedbacks', text: 'What Pepole Says ?' },
+        { to: '/chat', text: 'Lets Clear Your Douts.' },
+        { to: '/', text: 'What Pepole Says ?' },
         { to: '/info', text: 'Why Important This Platform?' },
       ]
     return (

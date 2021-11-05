@@ -1,10 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import { Col, Container, Row, Button } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import DiseasesInfo from '../../API/DiseasesInfo';
-import { Link } from 'react-router-dom';
 import './Disease.css'
 import SubNavigationBar from '../../Components/SubNavigationBar/SubNavigationBar';
+import Quetion from './Quetion';
+import Feedback from './Feedback';
 function Disease() {
     // ===========Get Id From URL==========
     const {id} = useParams();
@@ -29,7 +30,7 @@ function Disease() {
             </Row>
             <Row className="disease_info">
                 <Col xl={6}>
-                    <img className="disease_image" src={disease_info.image ? `${disease_info.image}` : `https://intersectiq.com/assets/images/blogs/6/cover.jpg`} alt="Image" />
+                    <img className="disease_image" src={disease_info.image ? `${disease_info.image}` : `https://intersectiq.com/assets/images/blogs/6/cover.jpg`} alt="" />
                 </Col>
                 <Col xl={6}>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{disease_info.details.Description}</p>
@@ -125,10 +126,10 @@ function Disease() {
         <Container className="disease_btns mt-3">
             <Row className="justify-content-center align-items-center">
                 <Col xl={4} className="text-center mt-2" >
-                    <Link to="/quetion"><Button className="post_quection">Any Dout Ask Quection Here</Button></Link>
+                    <Quetion/>
                 </Col>
                 <Col xl={4} className="text-center mt-2">
-                    <Link to="/feedbacks"><Button className="add_feedback">Please Add Your Valuebale Feedback Here</Button></Link>
+                    <Feedback/>
                 </Col>
             </Row>
         </Container>

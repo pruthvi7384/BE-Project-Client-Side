@@ -6,6 +6,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body{
   font-family: 'Open Sans', sans-serif;
   /* font-family: 'Poppins', sans-serif; */
@@ -16,8 +19,4 @@ ul{
 }
 a{
   text-decoration: inherit !important;
-}
-
-html{
-  scroll-behavior: smooth;
 }
