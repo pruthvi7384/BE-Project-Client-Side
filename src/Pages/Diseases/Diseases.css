@@ -25,6 +25,8 @@
     color:#111111;
 }
 .Diseases_All .card-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-weight: 400;
     color:#444444;
     text-align: justify;
