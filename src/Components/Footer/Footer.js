@@ -49,7 +49,7 @@ function Footer() {
         <Row className="Developer">
             <Col xl={12}>
                     <p>&copy; 2021-22 ~ E HEALTH CARE, All Rights Reserved.</p>
-                    <Link to="developer">Develped By ~ <span> <i className="fab fa-github"></i> BE Project Id 09.</span></Link>
+                    <a target='_blank' rel='noopener noreferrer' href="https://github.com/Full-Stack-Warriors">Develped By ~ <span> <i className="fab fa-github"></i> BE Project Id 09.</span></a>
             </Col>
         </Row>
      </Container>
