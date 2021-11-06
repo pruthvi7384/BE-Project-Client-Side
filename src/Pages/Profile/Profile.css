@@ -1,0 +1,13 @@
+/* =========Profile Page Styling============= */
+    .profile_page .profile_heding{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    .profile_page .profile_heding h3{
+    color: #333333;
+    font-weight: 600;
+    }
+    .profile_page .profile_heding h3 span{
+        color: #008aff;
+    }
+/* =======X==Profile Page Styling==X=========== */

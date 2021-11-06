@@ -9,6 +9,7 @@ import Contact from './Pages/Contact/Contact';
 import Diseases from './Pages/Diseases/Diseases';
 import Errore from './Pages/Errore/Errore';
 import Home from './Pages/Home/Home';
+import Profile from './Pages/Profile/Profile';
 import SymtomsChecker from './Pages/SymtomsChecker/SymtomsChecker';
 import Chat from './SubPages/Chat/Chat';
 import Disease from './SubPages/Disease/Disease';
@@ -18,48 +19,53 @@ function App() {
     <>
       <Switch>
           <Route exact path="/">
-              <NavigationBar path="/"/>
-              <Home/>
-              <Footer/>
+                <NavigationBar path="/"/>
+                <Home/>
+                <Footer/>
           </Route>
           <Route exact path="/about">
-              <NavigationBar path="/about"/>
-              <About/>
-              <Footer/>
+                <NavigationBar path="/about"/>
+                <About/>
+                <Footer/>
           </Route>
           <Route exact path="/symptomschecker">
-              <NavigationBar path="/symptomschecker"/>
-              <SymtomsChecker/>
-              <Footer/>
+                <NavigationBar path="/symptomschecker"/>
+                <SymtomsChecker/>
+                <Footer/>
           </Route>
           <Route exact path="/diseases">
-              <NavigationBar path="/diseases"/>
-              <Diseases/>
-              <Footer/>
+                <NavigationBar path="/diseases"/>
+                <Diseases/>
+                <Footer/>
           </Route>
           <Route exact path="/contact">
-              <NavigationBar path="/contact"/>
-              <Contact/>
-              <Footer/>
+                <NavigationBar path="/contact"/>
+                <Contact/>
+                <Footer/>
           </Route>
           <Route exact path="/signup">
-              <NavigationBar path="/signup"/>
-              <SignUp/>
-              <Footer/>
+                <NavigationBar path="/signup"/>
+                <SignUp/>
+                <Footer/>
           </Route>
           <Route exact path="/login">
-              <NavigationBar path="/login"/>
-              <SignIn/>
-              <Footer/>
+                <NavigationBar path="/login"/>
+                <SignIn/>
+                <Footer/>
           </Route>
           <Route exact path="/disease/:id">
-              <NavigationBar/>
-              <Disease/>
-              <Footer/>
+                <NavigationBar/>
+                <Disease/>
+                <Footer/>
           </Route>
           <Route exact path="/chat">
-               <NavigationBar/>
-               <Chat/>
+                <NavigationBar/>
+                <Chat/>
+          </Route>
+          <Route exact path="/profile">
+                <NavigationBar path="/profile"/>
+                <Profile/>
+                <Footer/>
           </Route>
           <Route>
               <Errore/>

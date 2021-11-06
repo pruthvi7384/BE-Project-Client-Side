@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 
 import './NavigationBar.css';
@@ -16,7 +16,10 @@ function NavigationBar({path}) {
     { to: '/signup', text: 'SignUp' },
     { to: '/login', text: 'LogIn' },
   ]
-
+  const DROPDOWN = [
+    { to: '/profile', text: 'Profile' },
+    { to: '/logout', text: 'LogOut' },
+  ]
     return (
         <Navbar sticky="top" collapseOnSelect expand="lg">
             <Container>
@@ -29,6 +32,13 @@ function NavigationBar({path}) {
                    ))
                   }
                 </Nav>
+                <NavDropdown title="Pruthviraj Rajput" id="basic-nav-dropdown">
+                  {
+                    DROPDOWN.map(menu =>(
+                        <Link key={menu.text} className={menu.to===BrowserPath ? 'nav-active nav-link' : 'nav-link'} to={menu.to}>{menu.text}</Link>
+                    ))
+                  }
+                </NavDropdown>
               </Navbar.Collapse>
           </Container>
       </Navbar>
