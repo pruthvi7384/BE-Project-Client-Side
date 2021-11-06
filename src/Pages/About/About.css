@@ -22,6 +22,7 @@
         height:200px;
         width:200px;
         object-fit: fill;
+        border-radius: 5px;
     }
     .about_us .about_mission h5, .about_us .about_team h5{
         text-align: center;

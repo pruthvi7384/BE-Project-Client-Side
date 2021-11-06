@@ -1,19 +1,19 @@
 {
-  "short_name": "Diseases Prediction System",
+  "short_name": "E HEALTH CARE",
   "name": "Early prediction of lifestyle diseases",
   "icons": [
     {
-      "src": "favicon.ico.png",
+      "src": "favicion.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "favicon.ico.png",
+      "src": "favicion.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.ico.png",
+      "src": "favicion.png",
       "type": "image/png",
       "sizes": "512x512"
     }

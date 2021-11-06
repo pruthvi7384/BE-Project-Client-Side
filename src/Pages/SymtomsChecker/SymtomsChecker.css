@@ -1,0 +1,15 @@
+/* ===============Symtoms Cheaker Styling============== */
+    .symtoms_checker #symtoms_checker_heading{
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+    .symtoms_checker #symtoms_checker_heading h3{
+        font-weight: 600;
+        color: #008aff;
+    }
+    .symtoms_checker #symtoms_checker_heading p{
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #928f88;
+    }
+/* ===============Symtoms Cheaker Styling============== */
