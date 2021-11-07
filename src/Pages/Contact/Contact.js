@@ -76,7 +76,7 @@ function Contact() {
             <Row className="contact_body mt-2">
                 <Col xl={6}>
                     { contact_Details.map(info => (
-                        <div className="contact_info_card">
+                        <div key={info.text} className="contact_info_card">
                             <i className={info.icon}></i>
                             <p>{info.text}</p>
                         </div>

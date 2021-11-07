@@ -33,7 +33,7 @@ function Services() {
             <Row className="services_section">
                 {
                     SERVICES.map(service => (
-                        <Col xl={3} className="mt-3">
+                        <Col xl={3} key={service.text} className="mt-3">
                             <div className="service_card">
                                 {service.icon}
                                 <h5>{service.text}</h5>
