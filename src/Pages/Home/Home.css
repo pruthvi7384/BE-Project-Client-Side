@@ -59,14 +59,13 @@
             font-family: 'Poppins', sans-serif;
         }
         .Services .services_section .service_card i{
-            font-size:20px;
             background-color: #008aff;
             color: #FFFFFF;
             border-radius: 50%;
             padding:10px;
-            margin-bottom:10px;
         }
         .Services .services_section .service_card h5{
+            margin-top:10px;
             color:#333333;
             font-weight: 600;
         }
