@@ -49,3 +49,14 @@
         font-weight: 600;
     }
 /* ==============X====Sign Up And Login Form Styling===X=========== */
+
+/* ===============Responsive========= */
+    @media(max-width:768px){
+        .account_form #account_heading h3{
+            font-size:20px;
+        }
+        .account_form #account_heading p{
+            font-size:14px;
+        }
+    }
+/* ===============Responsive========= */

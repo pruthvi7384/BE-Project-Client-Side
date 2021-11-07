@@ -91,17 +91,17 @@ function Disease() {
             <Row className="disease_synptoms mt-2">
                 <h4><span>{disease_info.disease_name}</span> Disease <span>Most Predicated Area </span></h4>
                 <Col xl={8} className="mt-2">
-                    <p><span><i class="fas fa-hand-point-right"></i></span> <b>PIN CODE :</b> <b style={{color:'#008aff'}}>{
+                    <p><span><i className="fas fa-hand-point-right"></i></span> <b>PIN CODE :</b> <b style={{color:'#008aff'}}>{
                         !disease_info.most_predicated_area.pin_code ?
                         'Most Predicated Area Pin Code Not Mentions !' :
                         disease_info.most_predicated_area.pin_code
                     }.</b></p>
-                    <p><span><i class="fas fa-hand-point-right"></i></span> <b>CITY :</b> <b style={{color:'#008aff'}}>{
+                    <p><span><i className="fas fa-hand-point-right"></i></span> <b>CITY :</b> <b style={{color:'#008aff'}}>{
                         !disease_info.most_predicated_area.city ?
                         'Most Predicated Area City Detailes Not Mentions !' :
                         disease_info.most_predicated_area.city
                     }.</b></p>
-                    <p><span><i class="fas fa-hand-point-right"></i></span> <b>AREA :</b> <b style={{color:'#008aff'}}>{
+                    <p><span><i className="fas fa-hand-point-right"></i></span> <b>AREA :</b> <b style={{color:'#008aff'}}>{
                         !disease_info.most_predicated_area.area ?
                         'Most Predicated Area Detailed Not Mentions !' :
                         disease_info.most_predicated_area.area

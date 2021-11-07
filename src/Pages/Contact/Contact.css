@@ -36,9 +36,15 @@
 /* ==================X===Contact Page Styling====X=================== */
 
 /* ===============Responsive========= */
-    @media(max-width:767px){
+    @media(max-width:768px){
+        .Contact #contact_heading h3{
+           font-size:20px;
+        }
+        .Contact #contact_heading p{
+            font-size:14px;
+        }
         .Contact .contact_body .contact_info_card p{
-            font-size:13px;
+            font-size:12px;
         }
     }
 /* ===============Responsive========= */

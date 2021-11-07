@@ -105,7 +105,7 @@
         }
         .feedback_section .feedback_card h4{
             text-transform:capitalize;
-            color:#111111;
+            color:#333333;
             font-weight: 600;
         }
         .feedback_section .feedback_card p{
@@ -124,6 +124,32 @@
         @media(max-width:1024px) {
             .feedback_section .feedback_card div{
                 flex-basis: 100%;
+            }
+        }
+        @media(max-width:768px){
+            .Services #services_heading h3,.feedback_section #feedback_section_heading h3{
+                font-size:20px;
+            }
+            .Services #services_heading p,.feedback_section #feedback_section_heading p{
+                font-size:14px;
+            }
+            .Services .services_section .service_card h5{
+                font-size:16px;
+            }
+            .Services .services_section .service_card p{
+                font-size:10px;
+            }
+            .feedback_section .feedback_card{
+                padding:10px 0px
+            }
+            .feedback_section .feedback_card p{
+                font-size:12px;
+            }
+            .feedback_section .feedback_card h4{
+                font-size:16px;
+            }
+            .feedback_section .feedback_card p span{
+                padding:0px 10px;
             }
         }
 /* =======X===Responsive==X======= */

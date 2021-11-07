@@ -68,9 +68,15 @@
         }
 /* =======X==Profile Page Styling==X=========== */
 /* ===============Responsive========= */
-    @media(max-width:767px){
-        .profile_page .profile ul li{
+    @media(max-width:768px){
+        .profile_page .profile_heding h3, .profile_page .quection_profile h3{
+            font-size:20px;
+        }
+        .profile_page .profile_heding p, .profile_page .quection_profile p{
             font-size:14px;
+        }
+        .profile_page .profile ul li{
+            font-size:12px;
         }
     }
 /* ===============Responsive========= */

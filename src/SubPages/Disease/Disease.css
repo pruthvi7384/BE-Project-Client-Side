@@ -99,3 +99,34 @@
     font-weight:500;
   }
 /* ================X===Disease Page Styling===X=========== */
+/* ============Responsive=============== */
+    @media(max-width:768px){
+        .disease_page .fas{
+            margin-right: 10px;
+        }
+        .disease_page .disease_heading h3{
+            font-size:20px;
+        }
+        .disease_page .disease_heading p{
+            font-size:14px;
+        }
+        .disease_page .disease_info p,.disease_page .disease_synptoms p{
+            font-size:12px;
+        }
+        .Diseases_All .card-text{
+            font-size:12px;
+        }
+        .disease_page .disease_synptoms h4{
+            font-size:16px;
+        }
+        .disease_add_info .doctor_info p{
+            font-size:12px;
+          }
+          .disease_add_info .doctor_info h5{
+            font-size:14px;
+          }
+          .disease_add_info .doctor_info h6{
+            font-size:12px;
+          }
+    }
+/* ============Responsive=============== */

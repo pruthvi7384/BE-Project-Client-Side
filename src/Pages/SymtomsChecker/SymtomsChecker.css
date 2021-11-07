@@ -41,3 +41,17 @@
         }
      /* ===========Symtoms Home=========== */
 /* ===============Symtoms Cheaker Styling============== */
+
+/* ============Responsive=============== */
+    @media(max-width:768px){
+        .symtoms_checker #symtoms_checker_heading h3,.symtoms_checker .symtoms_home h3{
+            font-size:20px;
+        }
+        .symtoms_checker #symtoms_checker_heading p{
+            font-size:14px;
+        }
+        .symtoms_checker .symtoms_home p{
+            font-size:12px;
+        }
+    }
+/* ============Responsive=============== */

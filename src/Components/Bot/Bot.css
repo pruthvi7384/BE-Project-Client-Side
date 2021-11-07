@@ -1,14 +1,27 @@
-.bot_icon{
-   position: fixed;
-   bottom: 20px;
-   right:20px;
-   cursor: pointer;
-}
-.bot_icon i{
-    font-size: 22px;
-    padding:10px;
-    background-color: #008aff;
-    color: #fff;
-    border-radius: 50%;
-    box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
-}
+/* ====================Bot================= */
+    .bot_icon{
+        position: fixed;
+        bottom: 20px;
+        right:20px;
+        cursor: pointer;
+    }
+    .bot_icon i{
+        font-size: 22px;
+        padding:10px;
+        background-color: #008aff;
+        color: #fff;
+        border-radius: 50%;
+        box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+    }
+/* ====================Bot================= */
+
+/* =================Responsive============ */
+    @media(max-width: 1024px){
+        .bot_icon{
+            position: fixed;
+            bottom: 30px;
+            right:30px;
+            cursor: pointer;
+        }
+    }
+/* =============X====Responsive===X========= */

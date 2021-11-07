@@ -65,3 +65,26 @@
         font-size:22px;
     }
 /* ===========X===About Us Page Styleing===X============== */
+
+/* ===============Responsive========= */
+    @media(max-width:768px){
+        .about_us #about_us_heading h3{
+            font-size:20px;
+        }
+        .about_us #about_us_heading p{
+            font-size:14px;
+        }
+        .about_us .about_mission h5, .about_us .about_team h5{
+           font-size: 14px;
+        }
+        .about_us .about_mission p{
+            font-size: 12px;
+        }
+        .about_us .about_team .about_team_member h6{
+            font-size: 12px;
+        }
+        .about_us .about_team .about_team_member p{
+            font-size: 12px;
+        }
+    }
+/* ===============Responsive========= */

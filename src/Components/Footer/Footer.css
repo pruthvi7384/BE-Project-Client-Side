@@ -14,6 +14,9 @@
         font-weight: 700;
         text-transform: uppercase;
     }
+    .Footer .Footer_Logo a .fas{
+        margin-right: 5px;
+    }
     .Footer .Footer_Logo a span{
         color: #111111 !important;
     }
@@ -44,52 +47,79 @@
         font-size: 20px;
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
-        color: #444349;
-    }
-    .Footer .Footer_Menu ul{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .Footer .Footer_Menu ul li a,.Footer .Footer_Help ul li a{
-        padding:0px 10px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
         color: #333333;
     }
-    .Developer{
-        border-top: 1px solid #008aff;
-        margin:0px 10px !important;
-        padding-top: 10px;
-        text-align: center;
+    .Footer .Footer_Menu ul{
+        display:flex;
+        align-items: center;
+        justify-content: center;
     }
-    .Developer p{
+    .Footer .Footer_Menu ul li a{
         font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        color: #444349;
-        margin-bottom: 5px;
+        margin: 0px 10px;
+        color:#444444;
+        font-weight:500;
     }
-    .Developer a{
-        font-size: 18px;
+    .Footer .Footer_Help ul li a{
         font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        color: #444349;
+        color:#444444;
+        font-weight:500;
     }
-    .Developer a span{
-        color: #008aff;
-    }
+    /* =================Developer================ */
+        .Developer{
+            border-top: 1px solid #008aff;
+            margin:0px 10px !important;
+            padding-top: 10px;
+            text-align: center;
+        }
+        .Developer p{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color:#444444;;
+            margin-bottom: 5px;
+        }
+        .Developer a{
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color:#444444;
+        }
+        .Developer a span{
+            color: #008aff;
+        }
+        .Developer a span .fab{
+            margin-right:5px;
+        }
+     /* =================Developer================ */
 /* ===============X==Footer Section Styleing==X============= */
 
 /* ==============Footer Responsive============= */
-    @media(max-width:500px){
+    @media(max-width:1024px){
+        .Footer{
+            padding:15px;
+        }
+        .Footer .Footer_Menu p, .Footer .Footer_Help p{
+            font-size: 16px;
+        }
         .Footer .Footer_Menu ul{
-            flex-direction: column;
+            display:block;
         }
-        .Developer a{
-            font-size: 14px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: #444349;
+        .Footer .Footer_Menu ul li a{
+            font-size: 12px;
         }
+        .Footer .Footer_Help ul li a{
+            font-size: 12px;
+        }
+        /* =================Developer================ */
+            .Developer{
+                margin:0px 0px !important;
+            }
+            .Developer p{
+                font-size: 10px;
+            }
+            .Developer a{
+                font-size: 10px;
+            }
+        /* =================Developer================ */
     }
 /* ===========X===Footer Responsive===X========== */
