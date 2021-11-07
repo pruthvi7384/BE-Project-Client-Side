@@ -1,8 +1,8 @@
 /* =========Profile Page Styling============= */
     .profile_page{
         padding:20px;
-        background-color: #FFFFFFFF;
         box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
+        border-radius:5px;
     }
     .profile_page .profile_heding{
         text-align: center;

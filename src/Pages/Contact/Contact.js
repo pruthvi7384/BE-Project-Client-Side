@@ -2,7 +2,7 @@ import React,{ useState } from 'react'
 import { Alert, Col, Container, Form, Row, Button, FloatingLabel } from 'react-bootstrap'
 import './Contact.css'
 function Contact() {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const [contact,setContact] = useState({
         name:'',
         email:'',

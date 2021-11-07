@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './style.css'
 
 function SignIn() {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const [user,setUser] = useState({
         email:'',
         password:'',

@@ -3,7 +3,7 @@ import { Col, Container, Form, Row, Button, Alert } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './style.css'
 function SignUp() {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const [user,setUser] = useState({
         name:'',
         email:'',
