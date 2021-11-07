@@ -30,6 +30,15 @@
         color: #333333 !important;
         font-family: 'Poppins', sans-serif;
         font-weight:500;
+        word-wrap: wrap;
     }
 
 /* ==================X===Contact Page Styling====X=================== */
+
+/* ===============Responsive========= */
+    @media(max-width:767px){
+        .Contact .contact_body .contact_info_card p{
+            font-size:14px;
+        }
+    }
+/* ===============Responsive========= */

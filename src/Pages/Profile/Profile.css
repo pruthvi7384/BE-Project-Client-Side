@@ -33,10 +33,7 @@
             font-size:18px;
         }
         .profile_page .profile ul li span{
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
             color: #444444;
-            font-size:18px;
             margin-left:5px;
         }
     /* ========X==Profile==X========== */
@@ -70,3 +67,10 @@
             text-align: justify;
         }
 /* =======X==Profile Page Styling==X=========== */
+/* ===============Responsive========= */
+    @media(max-width:767px){
+        .profile_page .profile ul li{
+            font-size:16px;
+        }
+    }
+/* ===============Responsive========= */
