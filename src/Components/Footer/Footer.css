@@ -53,7 +53,6 @@
     }
     .Footer .Footer_Menu ul li a,.Footer .Footer_Help ul li a{
         padding:0px 10px;
-        font-size: 16px;
         font-family: 'Poppins', sans-serif;
         font-weight: 500;
         color: #333333;
@@ -65,7 +64,6 @@
         text-align: center;
     }
     .Developer p{
-        font-size: 16px;
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
         color: #444349;
@@ -88,7 +86,7 @@
             flex-direction: column;
         }
         .Developer a{
-            font-size: 16px;
+            font-size: 14px;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             color: #444349;
