@@ -63,5 +63,8 @@
         .account_form #account_heading p{
             font-size:14px;
         }
+        .form-floating .form-control{
+            font-size:14px!important;
+        }
     }
 /* ===============Responsive========= */
