@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 function DiseasesInfo() {
-    const [ info, setInfo ] = useState([
+    const [ info ] = useState([
         {
             "_id": '100',
             "disease_name": "Malaria",
