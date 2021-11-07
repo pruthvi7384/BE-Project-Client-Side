@@ -9,6 +9,9 @@
 html {
   scroll-behavior: smooth;
 }
+html::-webkit-scrollbar{
+  display: none;
+}
 body{
   background-color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
