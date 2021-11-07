@@ -47,7 +47,7 @@ function About() {
             linkdin:"",
         }
     ]
-    console.log(TEAM);
+   
     return (
         <>
         <Container className="about_us mt-4">
@@ -79,8 +79,8 @@ function About() {
                     <h6>{team.branch}</h6>
                     <p>{team.class} / {team.section} / {team.rollno}</p>
                     <ul>
-                        <li><a target="_blank" rel="noopener noreferrer" href={`${team.github}`}><i class="fab fa-github"></i></a></li>
-                        <li><a target="_blank" rel="noopener noreferrer" href={`${team.linkdin}`}><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href={`${team.github}`}><i className="fab fa-github"></i></a></li>
+                        <li><a target="_blank" rel="noopener noreferrer" href={`${team.linkdin}`}><i className="fab fa-linkedin-in"></i></a></li>
                     </ul>
                 </Col>
             ))

@@ -4,6 +4,9 @@
         padding: 20px;
         border-radius: 0.25rem;
     }
+    .disease_page .fas{
+        margin-right: 5px;
+    }
     .disease_page .disease_heading{
         text-align: center;
         font-family: 'Poppins', sans-serif;
@@ -60,7 +63,6 @@
     }
     .disease_page .disease_synptoms p span{
         color: #008aff;
-        margin-right: 5px;
     }
     .disease_add_info{
         align-items: center;
