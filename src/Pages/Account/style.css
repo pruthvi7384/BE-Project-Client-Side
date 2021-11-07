@@ -35,7 +35,12 @@
         box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
         background-color:none;
     }
-    label,input{
+    .form-floating label{
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 500;
+        color: #333333 !important;
+    }
+    .form-floating .form-control{
         font-family: 'Poppins', sans-serif !important;
         font-weight: 500;
         color: #333333 !important;
