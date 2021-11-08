@@ -48,10 +48,13 @@ function Chat() {
                 }
             </Row>
             <Row>
-                <form className="chat_rom_input">
+               <Col xl={12} className="send_row_message">
                     <input className="chat_inputFiled" value={input} type="text" placeholder="Type a message..." onChange={e=>setInput(e.target.value)}/>
-                    <button className="send_button" onClick={sendMessage}>SEND</button>
-                </form>
+                    <div className="message_end">
+                        <i className="fas fa-microphone-slash"></i>
+                        <button className="send_button" onClick={sendMessage}><i className="fas fa-paper-plane"></i></button>
+                    </div>
+               </Col>
             </Row>
         </Container>
     )
