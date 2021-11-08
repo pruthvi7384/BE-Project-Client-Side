@@ -62,8 +62,8 @@
         .account_form #account_heading p{
             font-size:14px;
         }
-         .form-floating .form-control{
-            font-weight: 400;
+         .form-floating textarea {
+            font-size:12px!important;
         }
     }
 /* ===============Responsive========= */
