@@ -13,6 +13,7 @@ import Profile from './Pages/Profile/Profile';
 import SymtomsChecker from './Pages/SymtomsChecker/index.js';
 import Chat from './SubPages/Chat/Chat';
 import Disease from './SubPages/Disease/Disease';
+ 
 
 function App() {
   return (
