@@ -1,5 +1,4 @@
 import React,{ useState, useEffect } from 'react'
-import TimeAgo from 'timeago-react';
 import axios from 'axios';
 import Pusher from 'pusher-js';
 import { Container, Row, Col, Modal, Button, FloatingLabel, Form } from 'react-bootstrap';
@@ -99,13 +98,9 @@ function Chat() {
                             }
                             {
                                 message.name === username ?
-                                <p style={{textAlign:'right'}}><span> <TimeAgo
-                                datetime={message.timestamp ? new Date(message.timestamp) : new Date()}
-                            /></span></p>
+                                <p style={{textAlign:'right'}}><span> {message.timestamp}</span></p>
                                 :
-                                <p><span> <TimeAgo
-                                datetime={message.timestamp ? new Date(message.timestamp) : new Date()}
-                            /></span></p>
+                                <p><span> {message.timestamp}</span></p>
                             }
                             <div className="d-flex">
                                 <h6 className={message.name === username ? "message_user" : "message_other" }>{message.message}</h6>
