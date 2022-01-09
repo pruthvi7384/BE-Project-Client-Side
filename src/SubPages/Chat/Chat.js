@@ -98,9 +98,9 @@ function Chat() {
                             }
                             {
                                 message.name === username ?
-                                <p style={{textAlign:'right'}}><span> {message.timestamp}</span></p>
+                                <p style={{textAlign:'right'}}><span>  </span></p>
                                 :
-                                <p><span> {message.timestamp}</span></p>
+                                <p><span> </span></p>
                             }
                             <div className="d-flex">
                                 <h6 className={message.name === username ? "message_user" : "message_other" }>{message.message}</h6>

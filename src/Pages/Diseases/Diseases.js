@@ -1,12 +1,41 @@
-import React from 'react'
-import { Container, Row, Col, Card, Button} from 'react-bootstrap';
-import DiseasesInfo from '../../API/DiseasesInfo'
+import React,{ useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Button, Spinner} from 'react-bootstrap';
 import SearchBar from '../../Components/SearchBar/SearchBar';
-import './Diseases.css'
+import Moment from 'react-moment';
+import axios from 'axios';
+import './Diseases.css';
 import { Link } from 'react-router-dom';
 
 function Diseases() {
-   const Info = DiseasesInfo();
+    const [disease, setDisease] = useState([]);
+    const [isloading, setIsloading] = useState(true);
+
+    useEffect(()=>{
+        const getDiseasesInfo = async ()=>{
+            try{
+                const res = await axios.get('https://lifestylediseases.herokuapp.com/alldiseaseverify');
+                setDisease(res.data);
+                setIsloading(false);
+             }catch(e){
+                 console.log(e.message);
+             }
+        }
+        getDiseasesInfo();
+        return ()=>{
+           setDisease();
+        }
+    },[]);
+
+    if(isloading){
+        return(
+            <Container style={{height:"100vh"}}className="d-flex justify-content-center align-items-center">
+                <Row >
+                        <Spinner animation="grow" variant="info" />
+                </Row>
+            </Container>
+        )
+    }
+
     return (
         <Container className="Diseases_All mt-4">
             <Row id="Diseases_heading">
@@ -16,21 +45,20 @@ function Diseases() {
             <SearchBar/>
             <Row className="mt-4">
                 {
-                    Info.map(item => (
+                    disease.map(item => (
                         <Col xl={4} key={item._id}>
                             <Card>
-                                <Card.Img variant="top" src="https://sahyadrihospital.com/wp-content/uploads/2021/04/Be-aware-of-malaria-the-deadly-disease.jpg" />
+                                <Card.Img variant="top" src={item.detail.image ? `${item.detail.image}` : "https://sahyadrihospital.com/wp-content/uploads/2021/04/Be-aware-of-malaria-the-deadly-disease.jpg"} />
                                 <Card.Body>
-                                    <Card.Title>{item.disease_name}</Card.Title>
+                                    <Card.Title>{item.desease_name}</Card.Title>
                                     <Card.Text>
-                                        {item.details.Description  ? `${item.details.Description.split(' ').slice(0, 25).join(' ').replace(/<.+?>/g, "")}...`
+                                        {item.detail.description ? `${item.detail.description.split(' ').slice(0, 25).join(' ').replace(/<.+?>/g, "")}...`
                                         : 'No description' }
                                     </Card.Text>
                                 </Card.Body>
                                 <div className="Footer__Card">
                                     <ul>
-                                        <li><Link to="/diseases"><i className="fas fa-user-md"></i> <span>{item.doctore_name}</span></Link></li>
-                                        <li><Link to="/diseases"><i className="far fa-clock"></i> <span>{item.data_updated_at}</span></Link></li>
+                                        <li><Link to="/diseases"><i className="far fa-clock"></i> <span> <Moment local date={item.created_date} /></span></Link></li>
                                         <li><Link to={`/disease/${item._id}`}><Button >Read More</Button></Link></li>
                                     </ul>
                                 </div>
@@ -40,6 +68,7 @@ function Diseases() {
                 }
             </Row>
         </Container>
+    
     )
 }
 
