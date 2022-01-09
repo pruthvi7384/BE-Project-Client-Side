@@ -1,10 +1,21 @@
+import axios from 'axios';
 import React,{ useState } from 'react'
 import { Col, Container, Form, Row, Button, Alert } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { useProfile } from './Context.Provider';
 import './style.css'
 
 function SignIn() {
     const [show, setShow] = useState(false);
+    const [message, setMessage] = useState('');
+    const [loading, setloading] = useState(false);
+    const {profile, setProfile}= useProfile();
+    const History = useHistory();
+
+    if(profile){
+        History.push('/');
+    }
+
     const [user,setUser] = useState({
         email:'',
         password:'',
@@ -29,8 +40,28 @@ function SignIn() {
         value= e.target.value;
         setUser({...user, [name]:value});
     }
-    const signin = (e)=>{
+    const signin = async (e)=>{
         e.preventDefault();
+        try{
+            setloading(true);
+            const signin = await axios.post('https://lifestylediseases.herokuapp.com/login',{
+                email : user.email, 
+                password : user.password
+            })
+            setloading(false);
+            setProfile(signin.data.login);
+            setMessage(signin.data.message);
+            setShow(true);
+            setUser({
+                email:'',
+                password:''
+            });
+        }catch(e){
+            setloading(true)
+            console.log(e.message);
+            setMessage(e.message);
+            setloading(false);
+        }
     }
     return (
         <Container className="mt-4 account_form">
@@ -41,9 +72,12 @@ function SignIn() {
             <Form className="account_form_body mt-2">
                 { 
                 show ?
-                    <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-                    <Alert.Heading>Oh Know !</Alert.Heading>
-                    <p>Your Entered Email Id is Not Exist. Please <Link to="signup">SignUp Now</Link></p>
+                    <Alert variant="info" onClose={() => {
+                         setShow(false);
+                         History.push('/diseases');
+                        }
+                    } dismissible>
+                        <Alert.Heading>{message} !</Alert.Heading>
                     </Alert>
                     :
                     ''
@@ -68,7 +102,7 @@ function SignIn() {
                 <Row>
                     <Col xl={6} className="account_button text-center mt-2">
                         <p>Forgot Password? <Link to="/signup">Here.</Link></p>
-                        <Button type="submit" onClick={signin}>Login Now</Button>
+                        <Button type="submit" onClick={signin} disabled={!user.email}>{loading ? 'Processing...' : 'Login Now'}</Button>
                         <p>You are Not Signup,Please <Link to="/signup">signup Here.</Link></p>
                     </Col>
                 </Row>

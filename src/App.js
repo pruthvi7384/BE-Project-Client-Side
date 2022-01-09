@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router';
 import Footer from './Components/Footer/Footer';
 import NavigationBar from './Components/NavBar/NavigationBar';
 import About from './Pages/About/About';
+import { ProfileProvider } from './Pages/Account/Context.Provider';
+import Logout from './Pages/Account/Logout';
 import SignIn from './Pages/Account/SignIn';
 import SignUp from './Pages/Account/SignUp';
 import Contact from './Pages/Contact/Contact';
@@ -17,7 +19,7 @@ import Disease from './SubPages/Disease/Disease';
 
 function App() {
   return (
-    <>
+    <ProfileProvider>
       <Switch>
           <Route exact path="/">
                 <NavigationBar path="/"/>
@@ -63,16 +65,19 @@ function App() {
                 <NavigationBar/>
                 <Chat/>
           </Route>
-          <Route exact path="/profile">
+          <Route exact path="/profile/:id">
                 <NavigationBar path="/profile"/>
                 <Profile/>
                 <Footer/>
+          </Route>
+          <Route exact path="/logout">
+                  <Logout/>
           </Route>
           <Route>
               <Errore/>
           </Route>
       </Switch>
-    </>
+    </ProfileProvider>
   );
 }
 

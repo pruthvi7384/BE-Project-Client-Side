@@ -1,13 +1,23 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { Col, Container, Form, Row, Button, Alert } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { useProfile } from './Context.Provider';
 import './style.css'
 function SignUp() {
     const [show, setShow] = useState(false);
+    const [message, setMessage] = useState('');
+    const [loading, setloading] = useState(false);
+    const {profile} = useProfile();
+    const History = useHistory();
+
+    if(profile){
+        History.push('/');
+    }
+    
     const [user,setUser] = useState({
         name:'',
         email:'',
-        contact:'',
         password:'',
         cpassword:''
     });
@@ -23,12 +33,6 @@ function SignUp() {
             value:user.email,
             type:'email',
             text:'Enter Your Email'
-        },
-        {
-            name:'contact',
-            value:user.contact,
-            type:'number',
-            text:'Enter Your Contact Number'
         },
         {
             name:'password',
@@ -49,8 +53,33 @@ function SignUp() {
         value= e.target.value;
         setUser({...user, [name]:value});
     }
-    const signup = (e)=>{
+    const signup = async (e)=>{
         e.preventDefault();
+        try{
+            setloading(true);
+            const signup = await axios.post('https://lifestylediseases.herokuapp.com/signup',{
+                name : user.name, 
+                email : user.email, 
+                password : user.password, 
+                cpassword : user.cpassword, 
+                role : "user" 
+            })
+            setloading(false);
+            console.log(signup);
+            setMessage(signup.data.message);
+            setShow(true);
+            setUser({
+                name:'',
+                email:'',
+                password:'',
+                cpassword:''
+            });
+        }catch(e){
+            setloading(true)
+            console.log(e.message);
+            setMessage(e.message);
+            setloading(false);
+        }
     }
     return (
         <Container className="mt-4 account_form">
@@ -61,9 +90,12 @@ function SignUp() {
             <Form className="account_form_body mt-2">
                 { 
                 show ?
-                    <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-                    <Alert.Heading>Oh Know !</Alert.Heading>
-                    <p>Your Entered Email Id Is Alrady Exist Please, Try To Enter Different Email Id.</p>
+                    <Alert variant="info" onClose={() => {
+                        setShow(false);
+                        History.push('/login');
+                    }
+                    } dismissible>
+                    <Alert.Heading>{message}</Alert.Heading>
                     </Alert>
                     :
                     ''
@@ -87,7 +119,7 @@ function SignUp() {
                 }
                 <Row>
                     <Col xl={6} className="account_button text-center mt-2">
-                        <Button type="submit" onClick={signup}>SignUp Now</Button>
+                        <Button type="submit" onClick={signup} disabled={!user.email}> {loading ? 'Processing...' : 'SignUp Now' }</Button>
                         <p>You are Alrady Signup,Please <Link to="/login">Login Here.</Link></p>
                     </Col>
                 </Row>

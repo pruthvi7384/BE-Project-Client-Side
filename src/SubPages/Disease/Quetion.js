@@ -1,5 +1,6 @@
 import React , { useState } from 'react'
 import { Button, Col, Form, Modal, Row, FloatingLabel } from 'react-bootstrap';
+import { useProfile } from '../../Pages/Account/Context.Provider';
 
 function Quetion() {
     const [modalShow, setModalShow] = useState(false);
@@ -8,6 +9,9 @@ function Quetion() {
         email:'',
         quetion:''
     });
+
+    const {profile} = useProfile();
+
     const QUECTION = [
         {
             name:'name',
@@ -42,59 +46,77 @@ function Quetion() {
     return (
         <>
         <Button className="add_feedback"  onClick={() => setModalShow(true)}>Any Queries Please Ask Here..</Button>
-        <Modal
-            show={modalShow}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-        >
-            <Modal.Header closeButton onClick={() => setModalShow(false)}>
-                <Modal.Title style={{color:'#008aff', fontWeight:700}} id="contained-modal-title-vcenter">
-                    Ask Quetion ?
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Form className="account_form_body mt-2">
-                    {QUECTION.map(item =>(
-                        <Row key={item.text}>
-                            <Col xl={12}>
-                                { 
-                                    item.name === 'quetion' ?
-                                        <FloatingLabel className="mb-3" controlId="floatingTextarea2" label={item.text}>
+        {
+            profile
+            ?
+            <Modal
+                show={modalShow}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton onClick={() => setModalShow(false)}>
+                    <Modal.Title style={{color:'#008aff', fontWeight:700}} id="contained-modal-title-vcenter">
+                        Ask Quetion ?
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form className="account_form_body mt-2">
+                        {QUECTION.map(item =>(
+                            <Row key={item.text}>
+                                <Col xl={12}>
+                                    { 
+                                        item.name === 'quetion' ?
+                                            <FloatingLabel className="mb-3" controlId="floatingTextarea2" label={item.text}>
+                                                <Form.Control
+                                                name={item.name}
+                                                type={item.type}
+                                                value={item.value}
+                                                onChange={inputHandler}
+                                                as="textarea"
+                                                placeholder="Leave a comment here"
+                                                style={{ height: '150px' }}
+                                                />
+                                            </FloatingLabel>
+                                        :
+                                        <Form.Floating className="mb-3">
                                             <Form.Control
                                             name={item.name}
                                             type={item.type}
                                             value={item.value}
                                             onChange={inputHandler}
-                                            as="textarea"
-                                            placeholder="Leave a comment here"
-                                            style={{ height: '150px' }}
+                                            placeholder="name@example.com"
                                             />
-                                        </FloatingLabel>
-                                    :
-                                    <Form.Floating className="mb-3">
-                                        <Form.Control
-                                        name={item.name}
-                                        type={item.type}
-                                        value={item.value}
-                                        onChange={inputHandler}
-                                        placeholder="name@example.com"
-                                        />
-                                        <label htmlFor="floatingInputCustom">{item.text}</label>
-                                    </Form.Floating>
-                                }
-                            </Col>
-                        </Row>
-                        ))
-                    }
-                </Form>
-            </Modal.Body>
-            <Modal.Footer style={{justifyContent: 'center'}}>
-                <Button style={{ backgroundColor: '#008aff',
-                    fontFamily: `Poppins, sans-serif`,
-                    fontWeight:'500'}} onClick={sendQuction}>Ask Quetion</Button>
-            </Modal.Footer>
-        </Modal>
+                                            <label htmlFor="floatingInputCustom">{item.text}</label>
+                                        </Form.Floating>
+                                    }
+                                </Col>
+                            </Row>
+                            ))
+                        }
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer style={{justifyContent: 'center'}}>
+                    <Button style={{ backgroundColor: '#008aff',
+                        fontFamily: `Poppins, sans-serif`,
+                        fontWeight:'500'}} onClick={sendQuction}>Ask Quetion</Button>
+                </Modal.Footer>
+            </Modal>
+            :
+            <Modal
+                    show={modalShow}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered
+                >
+                    <Modal.Header closeButton onClick={() => setModalShow(false)}>
+                        <Modal.Title style={{color:'#008aff', fontWeight:700}} id="contained-modal-title-vcenter">
+                            Please First of all Login Then Ask Any Quection !
+                            Thank You For Chooseing E Health Care !
+                        </Modal.Title>
+                    </Modal.Header>
+            </Modal>
+        }
         </>
     )
 }

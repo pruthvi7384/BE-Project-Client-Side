@@ -1,5 +1,4 @@
 import React,{ useState, useEffect } from 'react'
-import Moment from 'react-moment';
 import axios from 'axios';
 import Pusher from 'pusher-js';
 import { Container, Row, Col, Modal, Button, FloatingLabel, Form } from 'react-bootstrap';
@@ -99,9 +98,9 @@ function Chat() {
                             }
                             {
                                 message.name === username ?
-                                <p style={{textAlign:'right'}}><span> <Moment fromNow ago>{message.timestamp}</Moment> </span></p>
+                                <p style={{textAlign:'right'}}><span></span></p>
                                 :
-                                <p><span> <Moment fromNow>{message.timestamp}</Moment> </span></p>
+                                <p><span>  </span></p>
                             }
                             <div className="d-flex">
                                 <h6 className={message.name === username ? "message_user" : "message_other" }>{message.message}</h6>
