@@ -65,7 +65,7 @@ function App() {
                 <NavigationBar/>
                 <Chat/>
           </Route>
-          <Route exact path="/profile/:id">
+          <Route exact path="/profile">
                 <NavigationBar path="/profile"/>
                 <Profile/>
                 <Footer/>

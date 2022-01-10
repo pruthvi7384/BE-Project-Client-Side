@@ -21,7 +21,7 @@ function NavigationBar({path}) {
     { key: 6, to: !profile ?'/login' : '', text: !profile ? 'LogIn' : '' },
   ]
   const DROPDOWN = [
-    { key : 0, to: profile ? `/profile/${profile._id}` : '', text: 'Profile' },
+    { key : 0, to: profile ? '/profile' : '', text: 'Profile' },
     { key : 1, to: '/logout', text: 'LogOut' }
   ]
     return (

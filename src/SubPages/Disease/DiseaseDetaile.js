@@ -60,21 +60,23 @@ function DiseaseDetailes({diseaseinfo}) {
             </Row>
             <Row className="disease_info">
                 <Col xl={6}>
-                    <img className="disease_image" src={diseaseinfo.detail.image ? `${diseaseinfo.detail.image}` : "https://www.hopkinsmedicine.org/-/media/images/health/1_-conditions/chidrens-health/blounts-disease-teaser.ashx"} alt="" />
+                    <img className="disease_image" src={diseaseinfo.detail.image !== '' ? `${diseaseinfo.detail.image}` : "https://www.hopkinsmedicine.org/-/media/images/health/1_-conditions/chidrens-health/blounts-disease-teaser.ashx"} alt="" />
                 </Col>
                 <Col xl={6}>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{diseaseinfo.detail.description}</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{diseaseinfo.detail.description !== '' ? diseaseinfo.detail.description : 'Description Not Mentioned !'}</p>
                 </Col>
             </Row>
             <Row className="disease_synptoms mt-2">
                 <h4><span>{diseaseinfo.desease_name}</span> Disease <span> Symptoms </span></h4>
                 <Col xl={8} className="mt-2">
                     {
+                        diseaseinfo.detail.symptoms.length !== 0
+                        ?
                         diseaseinfo.detail.symptoms.map((symptom,index) => (
-                            !symptom ?
-                            'Symtoms Detailes Not Mentions !' :
                             <p key={index}><span><i className="fas fa-hand-point-right"></i></span>  {symptom}</p>
                         ))
+                        :
+                        <p className="text-danger text-center" style={{fontWeight:'600'}}>Symptoms Detailes Not Mentioned !</p>
                     }
                 </Col>
             </Row>
@@ -82,12 +84,13 @@ function DiseaseDetailes({diseaseinfo}) {
                 <h4><span>{diseaseinfo.desease_name}</span> Disease <span> Precautions </span></h4>
                 <Col xl={8} className="mt-2">
                     {
+                        diseaseinfo.detail.precaution.length !== 0
+                        ?
                         diseaseinfo.detail.precaution.map((precaution, index) => (
-                            !precaution ?
-                            'Precaution Detailes Not Mentions !' :
                             <p key={index}><span><i className="fas fa-hand-point-right"></i></span>  {precaution}</p>
                         ))
-                    
+                        :
+                        <p className="text-danger text-center" style={{fontWeight:'600'}}>Precaution Detailes Not Mentioned !</p>
                     }
                 </Col>
             </Row>
@@ -95,12 +98,13 @@ function DiseaseDetailes({diseaseinfo}) {
                 <h4><span>{diseaseinfo.desease_name}</span> Disease <span> Medcines </span></h4>
                 <Col xl={8} className="mt-2">
                     {
+                        diseaseinfo.detail.medicine.length !==0
+                        ?
                         diseaseinfo.detail.medicine.map((medcine, index) => (
-                            !medcine ?
-                            'Medcine Detailes Not Mentions !' :
                             <p key={index}><span><i className="fas fa-hand-point-right"></i></span>  {medcine}</p>
                         ))
-                    
+                        :
+                        <p className="text-danger text-center" style={{fontWeight:'600'}}>Medicine Detailes Not Mentioned !</p>
                     }
                 </Col>
             </Row>
@@ -108,12 +112,13 @@ function DiseaseDetailes({diseaseinfo}) {
                 <h4><span>{diseaseinfo.desease_name}</span> Disease <span> Vaccine </span></h4>
                 <Col xl={8} className="mt-2">
                     {
+                        diseaseinfo.detail.vaccine.length !==0
+                        ?
                         diseaseinfo.detail.vaccine.map((vaccine,index) => (
-                            !vaccine ?
-                            'Vaccine Detailes Not Mentions !' :
                             <p key={index}><span><i className="fas fa-hand-point-right"></i></span>  {vaccine}</p>
                         ))
-                    
+                        :
+                        <p className="text-danger text-center" style={{fontWeight:'600'}}>Vaccine Detailes Not Mentioned !</p>
                     }
                 </Col>
             </Row>
@@ -121,17 +126,17 @@ function DiseaseDetailes({diseaseinfo}) {
                 <h4><span>{diseaseinfo.desease_name}</span> Disease <span>Most Predicated Area </span></h4>
                 <Col xl={8} className="mt-2">
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>PIN CODE :</b> <b style={{color:'#008aff'}}>{
-                        !diseaseinfo.most_predicated_area.pin_code ?
+                        diseaseinfo.most_predicated_area.pin_code === '' ?
                         'Most Predicated Area Pin Code Not Mentions !' :
                         diseaseinfo.most_predicated_area.pin_code
                     }.</b></p>
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>CITY :</b> <b style={{color:'#008aff'}}>{
-                        !diseaseinfo.most_predicated_area.city ?
+                        diseaseinfo.most_predicated_area.city === '' ?
                         'Most Predicated Area City Detailes Not Mentions !' :
                         diseaseinfo.most_predicated_area.city
                     }.</b></p>
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>AREA :</b> <b style={{color:'#008aff'}}>{
-                        !diseaseinfo.most_predicated_area.area ?
+                        diseaseinfo.most_predicated_area.area === '' ?
                         'Most Predicated Area Detailed Not Mentions !' :
                         diseaseinfo.most_predicated_area.area
                     }.</b></p>
@@ -146,9 +151,9 @@ function DiseaseDetailes({diseaseinfo}) {
                 <Col xl={10} className="doctor_info">
                     <p>Added By</p>
                     <h5>{doctorName.name}</h5>
-                    <h6>{doctorInfo.Education_Detailes.degree ? doctorInfo.Education_Detailes.degree : ''}</h6>
+                    <h6>{doctorInfo.Education_Detailes.degree !== '' ? doctorInfo.Education_Detailes.degree : ''}</h6>
                     <p>Disease Added Date ~ <Moment local date={diseaseinfo.created_date} /></p>
-                    <p>{doctorInfo.about ? doctorInfo.about : ''}.</p>
+                    <p>{doctorInfo.about !== '' ? doctorInfo.about : ''}.</p>
                     <p>Joining Date ~ <Moment local date={doctorName.crteatedAt}/></p>
                 </Col>
             </Row>

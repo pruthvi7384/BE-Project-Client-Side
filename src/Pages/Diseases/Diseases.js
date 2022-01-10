@@ -22,7 +22,7 @@ function Diseases() {
         }
         getDiseasesInfo();
         return ()=>{
-           setDisease();
+           setDisease([]);
         }
     },[]);
 
@@ -48,11 +48,11 @@ function Diseases() {
                     disease.map(item => (
                         <Col xl={4} key={item._id}>
                             <Card>
-                                <Card.Img variant="top" src={item.detail.image ? `${item.detail.image}` : "https://www.hopkinsmedicine.org/-/media/images/health/1_-conditions/chidrens-health/blounts-disease-teaser.ashx"} />
+                                <Card.Img variant="top" src={item.detail.image !== '' ? `${item.detail.image}` : "https://www.hopkinsmedicine.org/-/media/images/health/1_-conditions/chidrens-health/blounts-disease-teaser.ashx"} />
                                 <Card.Body>
                                     <Card.Title>{item.desease_name}</Card.Title>
                                     <Card.Text>
-                                        {item.detail.description ? `${item.detail.description.split(' ').slice(0, 25).join(' ').replace(/<.+?>/g, "")}...`
+                                        {item.detail.description !=='' ? `${item.detail.description.split(' ').slice(0, 25).join(' ').replace(/<.+?>/g, "")}...`
                                         : 'No description' }
                                     </Card.Text>
                                 </Card.Body>
