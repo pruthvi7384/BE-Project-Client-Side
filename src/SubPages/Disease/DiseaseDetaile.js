@@ -164,7 +164,7 @@ function DiseaseDetailes({diseaseinfo}) {
                     <Quetion d_id = {diseaseinfo._id}/>
                 </Col>
                 <Col xl={4} className="text-center mt-2">
-                    <Feedback d_id = {diseaseinfo._id}/>
+                    <Feedback id = {diseaseinfo._id}/>
                 </Col>
             </Row>
         </Container>
