@@ -1,11 +1,17 @@
+import axios from 'axios';
 import React , { useState } from 'react'
-import { Button, Col, FloatingLabel, Form, Modal, Row } from 'react-bootstrap';
+import { Alert, Button, Col, FloatingLabel, Form, Modal, Row } from 'react-bootstrap';
+import { useProfile } from '../../Pages/Account/Context.Provider';
 
 function Feedback() {
     const [modalShow, setModalShow] = useState(false);
+    const [show, setShow] = useState(false);
+    const [loading, setloading] = useState(false);
+    const [message, setMessage] = useState('');
+    const {profile} = useProfile();
     const [feedback,setFeedback] = useState({
-        name:'',
-        email:'',
+        name: !profile ? '' : profile.name,
+        email: !profile ? '' : profile.email,
         feedback:''
     });
     const FEEDBACK = [
@@ -35,9 +41,30 @@ function Feedback() {
         setFeedback({...feedback, [name]:value});
     }
 
-    const sendFeedback = (e)=>{
+    const sendFeedback = async (e)=>{
         e.preventDefault();
-        setModalShow(false);
+        try{
+            setloading(true);
+            const quectionSend = await axios.post('https://lifestylediseases.herokuapp.com/feedback',{
+                user_id : profile ? profile._id : 'NA', 
+                name: feedback.name, 
+                email: feedback.email, 
+                feedback: feedback.feedback, 
+            })
+            setloading(false);
+            setMessage(quectionSend.data.message);
+            setShow(true);
+            setFeedback({
+                name: !profile ? '' : profile.name,
+                email: !profile ? '' : profile.email,
+                feedback:''
+            });
+        }catch(e){
+            setloading(true)
+            console.log(e.message);
+            setMessage(e.message);
+            setloading(false);
+        }
     }
     return (
         <>
@@ -53,6 +80,17 @@ function Feedback() {
                     Add Your Valuebale Feedback
                 </Modal.Title>
             </Modal.Header>
+            { 
+                show ?
+                    <Alert variant="info" onClose={() => {
+                         setShow(false);
+                        }
+                    } dismissible>
+                        <p className='text-center'>{message}</p>
+                    </Alert>
+                    :
+                    ''
+            }
             <Modal.Body>
                 <Form className="account_form_body mt-2">
                     {FEEDBACK.map(item =>(
@@ -92,7 +130,7 @@ function Feedback() {
             <Modal.Footer style={{justifyContent: 'center'}}>
                 <Button style={{ backgroundColor: '#008aff',
                 fontFamily: `Poppins, sans-serif`,
-                fontWeight:'500'}} onClick={sendFeedback}>Provide Feedback</Button>
+                fontWeight:'500'}} onClick={sendFeedback}>{loading ? 'Processing...' : 'Provide Feedback'}</Button>
             </Modal.Footer>
         </Modal>
         </>

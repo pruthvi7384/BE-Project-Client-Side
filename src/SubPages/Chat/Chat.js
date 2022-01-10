@@ -1,8 +1,11 @@
 import React,{ useState, useEffect } from 'react'
+import Moment from 'react-moment';
 import axios from 'axios';
 import Pusher from 'pusher-js';
-import { Container, Row, Col, Modal, Button, FloatingLabel, Form } from 'react-bootstrap';
+import { Container, Row, Col, Modal } from 'react-bootstrap';
 import './Chat.css'
+import { useProfile } from '../../Pages/Account/Context.Provider';
+import { useHistory } from 'react-router-dom';
 
 // Pusher Realtime Technology
 var pusher = new Pusher('a73b7d1b6fcba563eede', {
@@ -10,25 +13,26 @@ var pusher = new Pusher('a73b7d1b6fcba563eede', {
   });
 
 function Chat() {
-    const [usernameinput, setusernameInput] = useState('');
-    const [username, setUsername] = useState('');
-    const [popup, setpopup] = useState(true);
+    const {profile} = useProfile();
+    const [popup, setpopup] = useState(profile ? false : true);
     const [messages,setmessage] = useState([]);
     const [input,setInput] = useState('');
 
+    const History = useHistory();
+
     const handalusername = (e)=>{
         e.preventDefault();
-        setUsername(usernameinput);
         setpopup(false);
+        History.push('/');
     }
 
     const sendMessage = async (e)=>{
         e.preventDefault();
         try{
             axios.post('https://lifestylediseases.herokuapp.com/chat',{
-                name: username,
+                name: profile.name,
                 message:input,
-                timestamp: Date.now()
+                timestamp: new Date()
             })
             setInput('');
         }catch(e){
@@ -54,30 +58,17 @@ function Chat() {
         channel.bind('newMessage', function(data) {
             getmessage();
         });
-    }, [username]);
+    }, []);
     
     if(popup){
         return (
             <Modal show={popup}>
-                <Modal.Header>
-                    <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Header closeButton onClick={handalusername}>
+                    <Modal.Title >Warning</Modal.Title>
                 </Modal.Header>
-                    <Modal.Body>
-                        <FloatingLabel
-                        controlId="floatingInput"
-                        label="Enter Your Name"
-                        className="mb-3"
-                        >
-                            <Form.Control type="text" value={usernameinput} onChange={(e)=>{
-                                setusernameInput(e.target.value);
-                            }} placeholder="name" />
-                        </FloatingLabel>
+                    <Modal.Body  style={{fontWeight: 'bold'}}>
+                       You Can Not Access Comman Chat Application, Because You Are Not Signup Please Sign Up ! 
                     </Modal.Body>
-                <Modal.Footer>
-                    <Button disabled={!usernameinput} variant="primary" onClick={handalusername}>
-                        Submit
-                    </Button>
-                </Modal.Footer>
            </Modal>
         )
     }
@@ -90,20 +81,20 @@ function Chat() {
             <Row className="chat_roome_window mb-5">
                 {
                   messages.map(message=>(
-                        <Col key={message._id} xl={12} className={message.name === username ? "chat_messages" : "chat_messages" }>
-                            {message.name === username ?
+                        <Col key={message._id} xl={12} className={message.name === profile.name ? "chat_messages" : "chat_messages" }>
+                            {message.name === profile.name ?
                                 ''
                                 :
                                 <p>{message.name}</p>
                             }
                             {
-                                message.name === username ?
-                                <p style={{textAlign:'right'}}><span></span></p>
+                                message.name === profile.name ?
+                                <p style={{textAlign:'right'}}><span> <Moment fromNow date={message.timestamp}/> </span></p>
                                 :
-                                <p><span>  </span></p>
+                                <p><span> <Moment fromNow date={message.timestamp}/> </span></p>
                             }
                             <div className="d-flex">
-                                <h6 className={message.name === username ? "message_user" : "message_other" }>{message.message}</h6>
+                                <h6 className={message.name === profile.name ? "message_user" : "message_other" }>{message.message}</h6>
                             </div>
                         </Col> 
                   ))

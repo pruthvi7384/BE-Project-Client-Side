@@ -9,12 +9,8 @@ function SignIn() {
     const [show, setShow] = useState(false);
     const [message, setMessage] = useState('');
     const [loading, setloading] = useState(false);
-    const {profile, setProfile}= useProfile();
+    const {profile,setProfile}= useProfile();
     const History = useHistory();
-
-    if(profile){
-        History.push('/');
-    }
 
     const [user,setUser] = useState({
         email:'',
@@ -63,6 +59,9 @@ function SignIn() {
             setloading(false);
         }
     }
+
+   
+
     return (
         <Container className="mt-4 account_form">
             <Row id="account_heading">
@@ -74,10 +73,13 @@ function SignIn() {
                 show ?
                     <Alert variant="info" onClose={() => {
                          setShow(false);
-                         History.push('/diseases');
+                         profile ?
+                         History.push('/diseases')
+                         :
+                         History.push('/login')
                         }
                     } dismissible>
-                        <Alert.Heading>{message} !</Alert.Heading>
+                        <p className='text-center'>{message}</p>
                     </Alert>
                     :
                     ''

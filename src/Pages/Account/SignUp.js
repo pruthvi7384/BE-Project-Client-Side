@@ -65,7 +65,6 @@ function SignUp() {
                 role : "user" 
             })
             setloading(false);
-            console.log(signup);
             setMessage(signup.data.message);
             setShow(true);
             setUser({
@@ -92,10 +91,9 @@ function SignUp() {
                 show ?
                     <Alert variant="info" onClose={() => {
                         setShow(false);
-                        History.push('/login');
                     }
                     } dismissible>
-                    <Alert.Heading>{message}</Alert.Heading>
+                    <p className='text-center'>{message}</p>
                     </Alert>
                     :
                     ''

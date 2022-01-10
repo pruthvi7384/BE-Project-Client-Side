@@ -1,16 +1,19 @@
+import axios from 'axios';
 import React , { useState } from 'react'
-import { Button, Col, Form, Modal, Row, FloatingLabel } from 'react-bootstrap';
+import { Button, Col, Form, Modal, Row, FloatingLabel, Alert } from 'react-bootstrap';
 import { useProfile } from '../../Pages/Account/Context.Provider';
 
 function Quetion() {
     const [modalShow, setModalShow] = useState(false);
+    const [show, setShow] = useState(false);
+    const [loading, setloading] = useState(false);
+    const [message, setMessage] = useState('');
+    const {profile} = useProfile();
     const [quetion,setQuetion] = useState({
-        name:'',
-        email:'',
+        name: !profile ? '' : profile.name,
+        email: !profile ? '' : profile.email,
         quetion:''
     });
-
-    const {profile} = useProfile();
 
     const QUECTION = [
         {
@@ -39,9 +42,30 @@ function Quetion() {
         setQuetion({...quetion, [name]:value});
     }
 
-    const sendQuction = (e)=>{
+    const sendQuction = async (e)=>{
         e.preventDefault();
-        setModalShow(false);
+        try{
+            setloading(true);
+            const quectionSend = await axios.post('https://lifestylediseases.herokuapp.com/quection',{
+                user_id: profile ? profile._id : 'NA',
+                user_name: quetion.name, 
+                user_email: quetion.email, 
+                question: quetion.quetion
+            })
+            setloading(false);
+            setMessage(quectionSend.data.message);
+            setShow(true);
+            setQuetion({
+                name: !profile ? '' : profile.name,
+                email: !profile ? '' : profile.email,
+                quetion:''
+            });
+        }catch(e){
+            setloading(true)
+            console.log(e.message);
+            setMessage(e.message);
+            setloading(false);
+        }
     }
     return (
         <>
@@ -60,6 +84,17 @@ function Quetion() {
                         Ask Quetion ?
                     </Modal.Title>
                 </Modal.Header>
+                { 
+                    show ?
+                        <Alert variant="info" onClose={() => {
+                             setShow(false);
+                            }
+                        } dismissible>
+                            <p className='text-center'>{message}</p>
+                        </Alert>
+                        :
+                        ''
+                }
                 <Modal.Body>
                     <Form className="account_form_body mt-2">
                         {QUECTION.map(item =>(
@@ -99,7 +134,7 @@ function Quetion() {
                 <Modal.Footer style={{justifyContent: 'center'}}>
                     <Button style={{ backgroundColor: '#008aff',
                         fontFamily: `Poppins, sans-serif`,
-                        fontWeight:'500'}} onClick={sendQuction}>Ask Quetion</Button>
+                        fontWeight:'500'}} onClick={sendQuction}>{loading ? 'Processing...' : 'Ask Quetion'}</Button>
                 </Modal.Footer>
             </Modal>
             :
@@ -109,12 +144,15 @@ function Quetion() {
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
                 >
-                    <Modal.Header closeButton onClick={() => setModalShow(false)}>
+                    <Modal.Header className="text-danger" closeButton onClick={() => setModalShow(false)}>
                         <Modal.Title style={{color:'#008aff', fontWeight:700}} id="contained-modal-title-vcenter">
-                            Please First of all Login Then Ask Any Quection !
-                            Thank You For Chooseing E Health Care !
+                            Ask Quetion ?
                         </Modal.Title>
                     </Modal.Header>
+                    <Modal.Body style={{color: 'red', fontWeight:700}}>
+                        Please First of all Login Then Ask Any Quection !
+                        Thank You For Chooseing E Health Care !
+                    </Modal.Body>
             </Modal>
         }
         </>
