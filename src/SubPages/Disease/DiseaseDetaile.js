@@ -161,10 +161,10 @@ function DiseaseDetailes({diseaseinfo}) {
         <Container className="disease_btns mt-3">
             <Row className="justify-content-center align-items-center">
                 <Col xl={4} className="text-center mt-2" >
-                    <Quetion/>
+                    <Quetion d_id = {diseaseinfo._id}/>
                 </Col>
                 <Col xl={4} className="text-center mt-2">
-                    <Feedback/>
+                    <Feedback d_id = {diseaseinfo._id}/>
                 </Col>
             </Row>
         </Container>

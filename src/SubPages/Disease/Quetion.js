@@ -3,7 +3,7 @@ import React , { useState } from 'react'
 import { Button, Col, Form, Modal, Row, FloatingLabel, Alert } from 'react-bootstrap';
 import { useProfile } from '../../Pages/Account/Context.Provider';
 
-function Quetion() {
+function Quetion({d_id}) {
     const [modalShow, setModalShow] = useState(false);
     const [show, setShow] = useState(false);
     const [loading, setloading] = useState(false);
@@ -48,6 +48,7 @@ function Quetion() {
             setloading(true);
             const quectionSend = await axios.post('https://lifestylediseases.herokuapp.com/quection',{
                 user_id: profile ? profile._id : 'NA',
+                disease_id: d_id ? d_id : 'NA',
                 user_name: quetion.name, 
                 user_email: quetion.email, 
                 question: quetion.quetion

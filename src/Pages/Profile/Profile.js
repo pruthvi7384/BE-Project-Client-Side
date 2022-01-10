@@ -48,26 +48,17 @@ function Profile() {
         return ()=>{
             setFeedbacks([]);
         }
-    },[profile.email,feedbacks]);
+    },[profile.email]);
 
-    const deleteQuection = async (id)=>{
-        try{
-            await axios.delete(`https://lifestylediseases.herokuapp.com/quection/${id}`);
-            setIsloading(false);
-        }catch(e){
-            console.log(e.message);
-        }
+    if(isloading){
+        return(
+            <Container style={{height:"100vh"}} className="d-flex justify-content-center align-items-center">
+                <Row >
+                        <Spinner animation="grow" variant="info" />
+                </Row>
+            </Container>
+        )
     }
-
-    const deleteFeedback = async (id)=>{
-        try{
-            await axios.delete(`https://lifestylediseases.herokuapp.com/feedback/${id}`);
-            setIsloading(false);
-        }catch(e){
-            console.log(e.message);
-        }
-    }
-
     return (
         <Container className="profile_page mt-4">
             <Row className="profile_heding"> 
@@ -104,7 +95,6 @@ function Profile() {
                                                 'Answer Is Not Found ! Sorry For That We try to answer your quection as per as posibale. Thank You For Quectioning !'
                                         }
                                     </Accordion.Body>
-                                    {quection.answer !== 'NA' ? '' : <span className='text-danger' style={{padding: '20px 10px', cursor: 'pointer'}}><i className="fas fa-trash" onClick={deleteQuection(quection._id)}></i></span>}
                                 </Accordion.Item>
                             ))
                             :
@@ -129,7 +119,6 @@ function Profile() {
                                                 feedback.feedback
                                         }
                                     </Accordion.Body>
-                                    {feedback.status === true ? '' : <span className='text-danger' style={{padding: '20px 10px',cursor: 'pointer'}}><i className="fas fa-trash" onClick={deleteFeedback(feedback._id)}></i></span>}
                                 </Accordion.Item>
                             ))
                             :
