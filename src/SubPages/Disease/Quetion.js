@@ -135,7 +135,7 @@ function Quetion({d_id}) {
                 <Modal.Footer style={{justifyContent: 'center'}}>
                     <Button style={{ backgroundColor: '#008aff',
                         fontFamily: `Poppins, sans-serif`,
-                        fontWeight:'500'}} onClick={sendQuction}>{loading ? 'Processing...' : 'Ask Quetion'}</Button>
+                        fontWeight:'500'}} disabled={!quetion.quetion} onClick={sendQuction}>{loading ? 'Processing...' : 'Ask Quetion'}</Button>
                 </Modal.Footer>
             </Modal>
             :

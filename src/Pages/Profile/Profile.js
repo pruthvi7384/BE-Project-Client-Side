@@ -10,6 +10,7 @@ function Profile() {
    const [isloading, setIsloading] = useState(false);
    const [quections, setQuection] = useState([]);
    const [feedbacks, setFeedbacks] = useState([]);
+   const [contacts, setContacts] = useState([]);
    const History = useHistory();
 
    if(!profile){
@@ -47,6 +48,23 @@ function Profile() {
         getFeedbacksInfo();
         return ()=>{
             setFeedbacks([]);
+        }
+    },[profile.email]);
+
+    useEffect(()=>{
+        const getContactsInfo = async ()=>{
+            try{
+                setIsloading(true);
+                const res = await axios.get(`https://lifestylediseases.herokuapp.com/contact/${profile.email}`);
+                setContacts(res.data);
+                setIsloading(false);
+            }catch(e){
+                console.log(e.message);
+            }
+        }
+        getContactsInfo();
+        return ()=>{
+            setContacts([]);
         }
     },[profile.email]);
 
@@ -88,6 +106,8 @@ function Profile() {
                                 <Accordion.Item key={quection._id} eventKey={quection._id}>
                                     <Accordion.Header>{quection.question} </Accordion.Header>
                                     <Accordion.Body>
+                                        Date Of Quection ~ <Moment local date={quection.ask_date}/>
+                                        <p></p>
                                         {
                                             quection.answer !=='NA' ?
                                                 quection.answer
@@ -123,6 +143,41 @@ function Profile() {
                             ))
                             :
                             <p className="text-danger text-center" style={{fontWeight:'600'}}>Feedbacks Detailes Not Found !</p>
+                        }
+                    </Accordion>
+               </Col>
+            </Row>
+            <Row className="quection_profile mt-4">
+                <h3><span>Your Contact </span> Detailes</h3>
+                <p>Your Privious Contact Detailes Available Here</p>
+                <Col xl="6" className="mt-2">
+                    <Accordion flush>
+                        {
+                           contacts.length !== 0
+                            ?
+                            contacts.map(contact => (
+                                <Accordion.Item key={contact._id} eventKey={contact._id}>
+                                    <Accordion.Header>{contact.subject}</Accordion.Header>
+                                    <Accordion.Body>
+                                        Date Of Contact ~ <Moment local date={contact.contact_date}/>
+                                        <p></p>
+                                        Message ~  {contact.message}
+                                        <p></p>
+                                        Response ~  
+
+                                            {
+                                                contact.answer === 'NA'
+                                                ?
+                                                ' Responce Not Available, Sorry For That ! Our Team Try To Contact You Within 24 Hours !'
+                                                :
+                                                 contact.answer
+                                            }
+                                    
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            ))
+                            :
+                            <p className="text-danger text-center" style={{fontWeight:'600'}}>Quections Detailes Not Found !</p>
                         }
                     </Accordion>
                </Col>

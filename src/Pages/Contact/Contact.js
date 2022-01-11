@@ -1,36 +1,41 @@
+import axios from 'axios';
 import React,{ useState } from 'react'
 import { Alert, Col, Container, Form, Row, Button, FloatingLabel } from 'react-bootstrap'
+import { useProfile } from '../Account/Context.Provider';
 import './Contact.css'
 function Contact() {
     const [show, setShow] = useState(false);
-    const [contact,setContact] = useState({
-        name:'',
-        email:'',
+    const [loading, setloading] = useState(false);
+    const [message, setMessage] = useState('');
+    const {profile} = useProfile();
+    const [contacts,setContact] = useState({
+        name:profile ? profile.name : '',
+        email:profile ? profile.email : '',
         subject:'',
         message:''
     });
     const SIGNUP = [
         {
             name:'name',
-            value:contact.name,
+            value:contacts.name,
             type:'text',
             text:'Enter Your Full Name'
         },
         {
             name:'email',
-            value:contact.email,
+            value:contacts.email,
             type:'email',
             text:'Enter Your Email'
         },
         {
             name:'subject',
-            value:contact.subject,
+            value:contacts.subject,
             type:'text',
             text:'Enter Your Subject'
         },
         {
             name:'message',
-            value:contact.message,
+            value:contacts.message,
             type:'text',
             text:'Enter Your Message',
         }
@@ -39,10 +44,36 @@ function Contact() {
     const inputHandler = (e)=>{
         name = e.target.name;
         value= e.target.value;
-        setContact({...contact, [name]:value});
+        setContact({...contacts, [name]:value});
     }
-    const contact_Info = (e)=>{
+
+    const contact_Info = async (e)=>{
         e.preventDefault();
+        try{
+            setloading(true);
+            const contact = await axios.post('https://lifestylediseases.herokuapp.com/contact',{
+                user_id: profile ? profile._id : 'NA',
+                name: contacts.name,
+                email: contacts.email,
+                subject: contacts.subject,
+                message: contacts.message
+            })
+            setloading(false);
+            setMessage(contact.data.message);
+            setShow(true);
+            setContact({
+                name:profile ? profile.name : '',
+                email:profile ? profile.email : '',
+                subject:'',
+                message:''
+            });
+        }catch(e){
+            setloading(true)
+            console.log(e.message);
+            setMessage(e.message);
+            setShow(true);
+            setloading(false);
+        }
     }
     const contact_Details = [
         {
@@ -66,9 +97,8 @@ function Contact() {
             </Row>
             { 
                 show ?
-                    <Alert variant="success" onClose={() => setShow(false)} dismissible>
-                    <Alert.Heading>Well Done !</Alert.Heading>
-                    <p>Your Information Sussesfuly Stored. Our teame conatact to you two three working days.</p>
+                    <Alert variant="info" onClose={() => setShow(false)} dismissible>
+                    <p className='text-center'>{message}</p>
                     </Alert>
                     :
                     ''
@@ -119,7 +149,7 @@ function Contact() {
                         }
                         <Row>
                             <Col xl={12} className="account_button text-center mt-2">
-                                <Button type="submit" onClick={contact_Info}>Send Message</Button>
+                                <Button type="submit" disabled={!contacts.message} onClick={contact_Info}>{loading ? 'Sending...' : 'Send Message'}</Button>
                             </Col>
                         </Row>
                     </Form>

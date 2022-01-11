@@ -131,7 +131,7 @@ function Feedback({id}) {
             <Modal.Footer style={{justifyContent: 'center'}}>
                 <Button style={{ backgroundColor: '#008aff',
                 fontFamily: `Poppins, sans-serif`,
-                fontWeight:'500'}} onClick={sendFeedback}>{loading ? 'Processing...' : 'Provide Feedback'}</Button>
+                fontWeight:'500'}} disabled={!feedback.feedback} onClick={sendFeedback}>{loading ? 'Processing...' : 'Provide Feedback'}</Button>
             </Modal.Footer>
         </Modal>
         </>
