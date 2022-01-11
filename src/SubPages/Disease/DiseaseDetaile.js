@@ -16,7 +16,7 @@ function DiseaseDetailes({diseaseinfo}) {
     useEffect(()=>{
         const getDoctorName = async ()=>{
                 const res = await axios.get(`https://lifestylediseases.herokuapp.com/profile/${diseaseinfo.doctor_id}`);
-                setDoctorName(res.data[0]);
+                setDoctorName(res.data);
         }
         getDoctorName();
         return ()=>{
@@ -27,7 +27,7 @@ function DiseaseDetailes({diseaseinfo}) {
     useEffect(()=>{
         const getDoctorInfo = async ()=>{
                 const res = await axios.get(`https://lifestylediseases.herokuapp.com/doctor/${diseaseinfo.doctor_id}`);
-                setDoctorInfo(res.data[0]);
+                setDoctorInfo(res.data);
                 setIsloading(false);
         }
         getDoctorInfo();

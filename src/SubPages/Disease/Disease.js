@@ -8,7 +8,7 @@ function Disease() {
     // ===========Get Id From URL==========
     const {id} = useParams();
     // ================Find Disease Inforamation using id===============
-    const [diseaseinformation, setDisease] = useState([]);
+    const [diseaseinformation, setDisease] = useState();
     const [isloading, setIsloading] = useState(true);
    
     useEffect(()=>{
@@ -36,13 +36,7 @@ function Disease() {
     }
 
     return (
-        <>
-            {
-                diseaseinformation.map(diseaseinfo =>(
-                    <DiseaseDetailes key={diseaseinfo._id} isloading={isloading} diseaseinfo={diseaseinfo}/>
-                ))
-            }
-        </>
+            <DiseaseDetailes isloading={isloading} diseaseinfo={diseaseinformation}/>
     )
 }
 
