@@ -36,7 +36,7 @@ function InfoDisease({item}) {
         <div className="Footer__Card">
             <ul>
                 <li><Link to="/diseases"><i className="fas fa-user-md"></i> <span> {doctorName ? doctorName : 'NA'}</span></Link></li>
-                <li><Link to="/diseases"><i className="far fa-clock"></i> <span> <Moment local format='DD / MM / YYYY' date={item.created_date} /></span></Link></li>
+                <li><Link to="/diseases"><i className="far fa-clock"></i> <span> <Moment local format='DD/MM/YYYY HH:MM' date={item.created_date} /></span></Link></li>
                 <li><Link to="/diseases"><i className="fas fa-comments"></i> <span> {comments.length <=9 ? `0${comments.length}` : comments.length} </span></Link></li>
                 <li><Link to={`/disease/${item._id}`}><Button >Read More</Button></Link></li>
             </ul>
