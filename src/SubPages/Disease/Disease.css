@@ -71,9 +71,9 @@
         box-shadow:  0 4px 16px rgb(0 0 0 / 10%);
     }
     .disease_add_info .profile_doctor_img img{
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
+        border-radius: 5px;
+        width: 150px;
+        height: 150px;
         object-fit: fill;
   }
   .disease_add_info .doctor_info{

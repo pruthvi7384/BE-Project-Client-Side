@@ -1,10 +1,9 @@
 import React,{ useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button, Spinner} from 'react-bootstrap';
+import { Container, Row, Col, Card, Spinner} from 'react-bootstrap';
 import SearchBar from '../../Components/SearchBar/SearchBar';
-import Moment from 'react-moment';
 import axios from 'axios';
 import './Diseases.css';
-import { Link } from 'react-router-dom';
+import InfoDisease from './InfoDisease';
 
 function Diseases() {
     const [disease, setDisease] = useState([]);
@@ -56,12 +55,7 @@ function Diseases() {
                                         : 'No description' }
                                     </Card.Text>
                                 </Card.Body>
-                                <div className="Footer__Card">
-                                    <ul>
-                                        <li><Link to="/diseases"><i className="far fa-clock"></i> <span> <Moment local date={item.created_date} /></span></Link></li>
-                                        <li><Link to={`/disease/${item._id}`}><Button >Read More</Button></Link></li>
-                                    </ul>
-                                </div>
+                                <InfoDisease item={item}/>
                             </Card>
                         </Col>
                     ))

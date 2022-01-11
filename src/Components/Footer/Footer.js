@@ -43,6 +43,7 @@ function Footer() {
                 <Col xl={4} className="Footer_Help">
                     <p>Let Us Help You</p>
                     <ul>
+                        <li><a target='_blank' rel='noopener noreferrer' href="https://ehealthcareadmin.netlify.app/">Register As A Doctor</a></li>
                         {HELP.map(item =>(
                             <li key={item.to}><Link to={item.to}>{item.text}</Link></li>
                             ))

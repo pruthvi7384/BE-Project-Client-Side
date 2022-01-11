@@ -1,28 +1,37 @@
-import React from 'react'
-import { Carousel, Container, Row } from 'react-bootstrap'
+import axios from 'axios';
+import React,{ useState, useEffect } from 'react'
+import { Carousel, Container, Row, Spinner } from 'react-bootstrap'
 
 function Feedback() {
-    const Feedback = [
-        { 
-            _id:"123",
-            name:"Pruthviraj Rajput",
-            feedback: "inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct."
-        },
-        { 
-            _id:"1234",
-            name:"Kirti Patil",
-            feedback: "inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct."
-        },
-        { 
-            name:"Harshada Chaudhari",
-            feedback: "inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct."
-        },
-        { 
-            _id:"1235",
-            name:"Sumit Patil",
-            feedback: "inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct women face higher conduct."
+    const [feedbacks, setFeedbacks] = useState([]);
+    const [isloading, setIsloading] = useState(false);
+
+    useEffect(()=>{
+        const getContactsInfo = async ()=>{
+            try{
+                setIsloading(true);
+                const res = await axios.get(`https://lifestylediseases.herokuapp.com/feedbackverify`);
+                setFeedbacks(res.data);
+                setIsloading(false);
+            }catch(e){
+                console.log(e.message);
+            }
         }
-    ]
+        getContactsInfo();
+        return ()=>{
+            setFeedbacks([]);
+        }
+    },[]);
+
+    if(isloading){
+        return(
+            <Container style={{height:"100vh"}} className="d-flex justify-content-center align-items-center">
+                <Row >
+                        <Spinner animation="grow" variant="info" />
+                </Row>
+            </Container>
+        )
+    }
     return (
         <Container fluid className="feedback_section mt-4">
             <Row id="feedback_section_heading">
@@ -32,7 +41,9 @@ function Feedback() {
             <Row >
                 <Carousel>
                     {
-                        Feedback.map(feedback => (
+                        feedbacks.length !== 0
+                        ?
+                        feedbacks.map(feedback => (
                             <Carousel.Item key={`${feedback._id}`}>
                                 <div className="feedback_card">
                                     <div>
@@ -42,6 +53,14 @@ function Feedback() {
                                 </div>
                             </Carousel.Item>
                         ))
+                        :
+                        <Carousel.Item>
+                                <div className="feedback_card">
+                                    <div>
+                                        <p className="text-danger"><span><i className="fas fa-quote-left"></i></span>  Feedbacks Not Available !  <span><i className="fas fa-quote-right"></i></span></p>
+                                    </div>
+                                </div>
+                        </Carousel.Item>
                     }
                 </Carousel>
             </Row>

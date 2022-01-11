@@ -70,7 +70,7 @@ function Quetion({d_id}) {
     }
     return (
         <>
-        <Button className="add_feedback"  onClick={() => setModalShow(true)}>Any Queries Please Ask Here..</Button>
+        <Button className="add_feedback"  onClick={() => setModalShow(true)}>Click Here To Ask Any Queries ?</Button>
         {
             profile
             ?

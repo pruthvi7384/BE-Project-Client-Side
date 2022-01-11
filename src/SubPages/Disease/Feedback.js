@@ -69,7 +69,7 @@ function Feedback({id}) {
     }
     return (
         <>
-        <Button className="add_feedback"  onClick={() => setModalShow(true)}>Please Add Your Valuebale Feedback Here..</Button>
+        <Button className="add_feedback"  onClick={() => setModalShow(true)}>Click Here To Add Your Valueable Feedback</Button>
         <Modal
             show={modalShow}
             size="lg"
