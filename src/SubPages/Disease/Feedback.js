@@ -3,7 +3,7 @@ import React , { useState } from 'react'
 import { Alert, Button, Col, FloatingLabel, Form, Modal, Row } from 'react-bootstrap';
 import { useProfile } from '../../Pages/Account/Context.Provider';
 
-function Feedback(id) {
+function Feedback({id}) {
     const [modalShow, setModalShow] = useState(false);
     const [show, setShow] = useState(false);
     const [loading, setloading] = useState(false);

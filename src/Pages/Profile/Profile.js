@@ -113,7 +113,7 @@ function Profile() {
                             ?
                             feedbacks.map(feedback => (
                                 <Accordion.Item key={feedback._id} eventKey={feedback._id}>
-                                    <Accordion.Header>{feedback._id} </Accordion.Header>
+                                    <Accordion.Header><Moment local date={feedback.feedback_date}/> </Accordion.Header>
                                     <Accordion.Body>
                                         {
                                                 feedback.feedback
