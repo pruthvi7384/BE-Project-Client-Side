@@ -6,6 +6,7 @@ import SubNavigationBar from '../../Components/SubNavigationBar/SubNavigationBar
 import Quetion from './Quetion';
 import Feedback from './Feedback';
 import axios from 'axios';
+import Comments from './Comments';
 function DiseaseDetailes({diseaseinfo}) {
 
     const [isloading, setIsloading] = useState(true);
@@ -34,6 +35,8 @@ function DiseaseDetailes({diseaseinfo}) {
             setDoctorInfo();
         }
     },[diseaseinfo.doctor_id]);
+
+    
 
     if(isloading){
         return(
@@ -165,6 +168,11 @@ function DiseaseDetailes({diseaseinfo}) {
                 </Col>
                 <Col xl={4} className="text-center mt-2">
                     <Feedback id = {diseaseinfo._id}/>
+                </Col>
+            </Row>
+            <Row>
+                <Col xl={12}>
+                    <Comments id = {diseaseinfo._id}/>
                 </Col>
             </Row>
         </Container>

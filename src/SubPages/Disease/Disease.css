@@ -98,7 +98,66 @@
     font-family: 'Poppins', sans-serif;
     font-weight:500;
   }
+   /* ===============Comments======================= */
+        .commaints{
+            margin-top: 20px;
+        }
+        .commaints h2{
+            font-size:30px;
+            text-transform: capitalize;
+            font-weight: 600;
+            color: #111111;
+        }
+        .commaints h2 span{
+            font-size:38px;
+            color: #6494ed;
+        }
+        .comments-row{
+            margin-top: 20px;
+        }
+        .comments-body{
+            display: flex;
+            padding: 5px;
+            border-bottom: 1px solid #6494ed;
+            cursor: pointer;
+        }
+        .comments-body h3{
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif; 
+            color: #111111;
+        }
+        .comments-body p{
+            font-size: 16px;
+            font-weight: 500;
+            color: #111111;
+            margin-bottom: 0px;
+        }
+        .comments-body img{
+            border-radius:50%;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+        }
+        .comments-body div{
+            padding: 10px;
+        }
+
+        @media (max-width:600px){
+            .comments-body,.publisher-details,.rcent-post{
+                flex-direction: column;
+            }
+            .commaints h2{
+                margin-top: 10px;
+                text-align: center;
+            }
+            .comments-body{
+                align-items:center;
+            }
+        }
+    /* ==========X====Comments=======X============== */
 /* ================X===Disease Page Styling===X=========== */
+
 /* ============Responsive=============== */
     @media(max-width:768px){
         .disease_page .fas{
