@@ -62,7 +62,7 @@ function Diseases() {
                         </Col>
                     ))
                     :
-                    <p className="text-danger text-center" style={{fontWeight:'600'}}>Diseases Information Not Found !</p>
+                    <p className="text-danger text-center" style={{fontWeight:'700'}}>Diseases Information Not Found !</p>
                 }
             </Row>
         </Container>
