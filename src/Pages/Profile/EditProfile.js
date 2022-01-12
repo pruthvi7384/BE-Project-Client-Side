@@ -61,10 +61,6 @@ function EditProfile({id}) {
             setloading(false);
             setMessage(profileSend.data.message);
             setShow(true);
-            setUser({
-                name: '',
-                email: ''
-            });
         }catch(e){
             setloading(true)
             console.log(e.message);
