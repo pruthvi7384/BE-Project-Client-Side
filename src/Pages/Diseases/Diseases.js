@@ -44,6 +44,8 @@ function Diseases() {
             <SearchBar/>
             <Row className="mt-4">
                 {
+                    disease.length !== 0
+                    ?
                     disease.map(item => (
                         <Col xl={4} key={item._id}>
                             <Card>
@@ -59,6 +61,8 @@ function Diseases() {
                             </Card>
                         </Col>
                     ))
+                    :
+                    <p className="text-danger text-center" style={{fontWeight:'600'}}>Diseases Information Not Found !</p>
                 }
             </Row>
         </Container>
