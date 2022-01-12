@@ -186,7 +186,7 @@ function Profile() {
                                 </Accordion.Item>
                             ))
                             :
-                            <p className="text-danger text-center" style={{fontWeight:'600'}}>Quections Detailes Not Found !</p>
+                            <p className="text-danger text-center" style={{fontWeight:'600'}}>Contact Detailes Not Found !</p>
                         }
                     </Accordion>
                </Col>
