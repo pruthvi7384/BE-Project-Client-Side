@@ -66,6 +66,16 @@
             color:#444444;
             text-align: justify;
         }
+        .add_Profile{
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            background-color: #008aff;
+            border:none;
+        }
+        .add_Profile:hover{
+            font-weight: 500;
+            background-color: #008aff;
+        }
 /* =======X==Profile Page Styling==X=========== */
 /* ===============Responsive========= */
     @media(max-width:768px){

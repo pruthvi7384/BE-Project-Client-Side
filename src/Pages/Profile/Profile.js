@@ -5,6 +5,7 @@ import { useProfile } from '../Account/Context.Provider';
 import { useHistory } from 'react-router';
 import Moment from 'react-moment';
 import axios from 'axios';
+import EditProfile from './EditProfile';
 function Profile() {
    const { profile } = useProfile();
    const [isloading, setIsloading] = useState(false);
@@ -93,6 +94,11 @@ function Profile() {
                         <li>Address : <span>Not Mentioned !</span></li>
                     </ul>
                </Col>
+            </Row>
+            <Row className="profile mt-2">
+                <Col xl="4" className="text-center">
+                    <EditProfile id={profile._id}/>
+                </Col>
             </Row>
             <Row className="quection_profile mt-4">
                 <h3><span>Your Quection </span> Asked</h3>
