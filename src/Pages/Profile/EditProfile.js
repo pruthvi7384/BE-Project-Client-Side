@@ -21,8 +21,8 @@ function EditProfile({id}) {
                 setUser({
                     name: res.data.name ? res.data.name : '',
                     email: res.data.email ? res.data.email : '',
-                    city: res.data.city ? res.data.city : '',
-                    area:  res.data.area ? res.data.area : '',
+                    city: res.data.address.city ? res.data.address.city : '',
+                    area:  res.data.address.area ? res.data.address.area : '',
                     pin_code:  res.data.address.pin_code ? res.data.address.pin_code : ''
                 });
              }catch(e){

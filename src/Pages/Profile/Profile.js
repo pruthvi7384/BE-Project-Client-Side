@@ -91,7 +91,10 @@ function Profile() {
                         <li>Name : <span>{profile ? profile.name : ''}</span></li>
                         <li>Email : <span>{profile ? profile.email : ''}</span></li>
                         <li>Join Date : <span><Moment local date={profile ? profile.crteatedAt : new Date()}/></span></li>
-                        <li>Address : <span>Not Mentioned !</span></li>
+                        <li>Address : </li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp; City : <span>{profile ? profile.address.city : ''}</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp; Area : <span>{profile ? profile.address.area : ''}</span></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp; Pin Code : <span>{profile ? profile.address.pin_code : ''}</span></li>
                     </ul>
                </Col>
             </Row>
