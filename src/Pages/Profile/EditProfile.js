@@ -9,7 +9,10 @@ function EditProfile({id}) {
     const [message, setMessage] = useState('');
     const [user,setUser] = useState({
         name: '',
-        email: ''
+        email: '',
+        city:'',
+        area: '',
+        pin_code: ''
     });
     useEffect(()=>{
         const getDiseasesInfo = async ()=>{
@@ -17,7 +20,10 @@ function EditProfile({id}) {
                 const res = await axios.get(`https://lifestylediseases.herokuapp.com/profile/${id}`);
                 setUser({
                     name: res.data.name ? res.data.name : '',
-                    email: res.data.email ? res.data.email : ''
+                    email: res.data.email ? res.data.email : '',
+                    city: res.data.city ? res.data.city : '',
+                    area:  res.data.area ? res.data.area : '',
+                    pin_code:  res.data.address.pin_code ? res.data.address.pin_code : ''
                 });
              }catch(e){
                  console.log(e.message);
@@ -41,6 +47,24 @@ function EditProfile({id}) {
             value:user.email,
             type:'email',
             text:'Enter Your Email'
+        },
+        {
+            name:'city',
+            value:user.city,
+            type:'text',
+            text:'Enter Your City Name'
+        },
+        {
+            name:'area',
+            value:user.area,
+            type:'text',
+            text:'Enter Your Area'
+        },
+        {
+            name:'pin_code',
+            value:user.pin_code,
+            type:'number',
+            text:'Enter Your Area Pin Code'
         }
     ]
     let name, value;
@@ -56,7 +80,12 @@ function EditProfile({id}) {
             setloading(true);
             const profileSend = await axios.put(`https://lifestylediseases.herokuapp.com/profile/${id}`,{
                 name: user.name,
-                email: user.email
+                email: user.email,
+                address:{
+                    city: user.city,
+                    area: user.area,
+                    pin_code: user.pin_code,
+                }
             })
             setloading(false);
             setMessage(profileSend.data.message);
