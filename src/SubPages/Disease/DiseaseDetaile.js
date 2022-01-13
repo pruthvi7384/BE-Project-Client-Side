@@ -128,17 +128,17 @@ function DiseaseDetailes({diseaseinfo}) {
                 <h4><span>{diseaseinfo.desease_name ? diseaseinfo.desease_name : ''}</span> Disease <span>Most Predicated Area </span></h4>
                 <Col xl={8} className="mt-2">
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>PIN CODE :</b> <b style={{color:'#008aff'}}>{
-                        diseaseinfo.most_predicated_area.pin_code === '' ?
+                        diseaseinfo.most_predicated_area.pin_code === 0 ?
                         'Most Predicated Area Pin Code Not Mentions !' :
                         diseaseinfo.most_predicated_area.pin_code
                     }.</b></p>
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>CITY :</b> <b style={{color:'#008aff'}}>{
-                        diseaseinfo.most_predicated_area.city === '' ?
+                        diseaseinfo.most_predicated_area.city === 'NA' ?
                         'Most Predicated Area City Detailes Not Mentions !' :
                         diseaseinfo.most_predicated_area.city
                     }.</b></p>
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>AREA :</b> <b style={{color:'#008aff'}}>{
-                        diseaseinfo.most_predicated_area.area === '' ?
+                        diseaseinfo.most_predicated_area.area === 'NA' ?
                         'Most Predicated Area Detailed Not Mentions !' :
                         diseaseinfo.most_predicated_area.area
                     }.</b></p>
