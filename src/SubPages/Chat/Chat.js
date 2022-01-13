@@ -30,6 +30,7 @@ function Chat() {
         e.preventDefault();
         try{
             axios.post('https://lifestylediseases.herokuapp.com/chat',{
+                user_id: profile._id,
                 name: profile.name,
                 message:input,
                 timestamp: new Date()
@@ -81,20 +82,20 @@ function Chat() {
             <Row className="chat_roome_window mb-5">
                 {
                   messages.map(message=>(
-                        <Col key={message._id} xl={12} className={message.name === profile.name ? "chat_messages" : "chat_messages" }>
+                        <Col key={message._id} xl={12} className={message.user_id === profile._id ? "chat_messages" : "chat_messages" }>
                             {message.name === profile.name ?
                                 ''
                                 :
                                 <p>{message.name}</p>
                             }
                             {
-                                message.name === profile.name ?
+                                message.user_id === profile._id ?
                                 <p style={{textAlign:'right'}}><span> <Moment fromNow date={message.timestamp}/> </span></p>
                                 :
                                 <p><span> <Moment fromNow date={message.timestamp}/> </span></p>
                             }
                             <div className="d-flex">
-                                <h6 className={message.name === profile.name ? "message_user" : "message_other" }>{message.message}</h6>
+                                <h6 className={message.user_id === profile._id ? "message_user" : "message_other" }>{message.message}</h6>
                             </div>
                         </Col> 
                   ))
