@@ -41,7 +41,8 @@ function SignIn() {
         try{
             setloading(true);
             const signin = await axios.post('https://lifestylediseases.herokuapp.com/login',{
-                email : user.email, 
+                email : user.email,
+                role: 'user',
                 password : user.password
             })
             setloading(false);
