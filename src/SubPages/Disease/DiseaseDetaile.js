@@ -128,20 +128,24 @@ function DiseaseDetailes({diseaseinfo}) {
                 <h4><span>{diseaseinfo.desease_name ? diseaseinfo.desease_name : ''}</span> Disease <span>Most Predicated Area </span></h4>
                 <Col xl={8} className="mt-2">
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>PIN CODE :</b> <b style={{color:'#008aff'}}>{
-                        diseaseinfo.most_predicated_area.pin_code === 0 ?
-                        'Most Predicated Area Pin Code Not Mentions !' :
+                        diseaseinfo.most_predicated_area.pin_code === 0 
+                        ?
+                        <span className="text-danger text-center" style={{fontWeight:'600'}}>Pin Code Not Mentioned !</span>
+                        :
                         diseaseinfo.most_predicated_area.pin_code
-                    }.</b></p>
+                    }</b></p>
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>CITY :</b> <b style={{color:'#008aff'}}>{
                         diseaseinfo.most_predicated_area.city === 'NA' ?
-                        'Most Predicated Area City Detailes Not Mentions !' :
+                        <span className="text-danger text-center" style={{fontWeight:'600'}}>City Detailes Not Mentioned !</span>
+                         :
                         diseaseinfo.most_predicated_area.city
-                    }.</b></p>
+                    }</b></p>
                     <p><span><i className="fas fa-hand-point-right"></i></span> <b>AREA :</b> <b style={{color:'#008aff'}}>{
                         diseaseinfo.most_predicated_area.area === 'NA' ?
-                        'Most Predicated Area Detailed Not Mentions !' :
+                        <span className="text-danger text-center" style={{fontWeight:'600'}}>Area Detailes Not Mentioned !</span>
+                        :
                         diseaseinfo.most_predicated_area.area
-                    }.</b></p>
+                    }</b></p>
                 </Col>
             </Row>
         </Container>

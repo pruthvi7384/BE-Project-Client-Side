@@ -1,9 +1,9 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import './SearchBar.css'
 
-function SearchBar() {
-    const [search, setSearch] = useState();
+function SearchBar({search, setSearch}) {
+   
     const inputhandler = (e)=>{
         e.preventDefault();
         setSearch(e.target.value);

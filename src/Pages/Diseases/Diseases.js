@@ -1,3 +1,4 @@
+
 import React,{ useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Spinner} from 'react-bootstrap';
 import SearchBar from '../../Components/SearchBar/SearchBar';
@@ -8,6 +9,9 @@ import InfoDisease from './InfoDisease';
 function Diseases() {
     const [disease, setDisease] = useState([]);
     const [isloading, setIsloading] = useState(true);
+
+    // =======For Searching Functionality=======
+    const [search, setSearch] = useState("");
 
     useEffect(()=>{
         const getDiseasesInfo = async ()=>{
@@ -41,12 +45,19 @@ function Diseases() {
                 <h3>Diseases</h3>
                 <p>All Diseases Display Here.</p>
             </Row>
-            <SearchBar/>
+            <SearchBar search={search} setSearch={setSearch} />
             <Row className="mt-4">
                 {
                     disease.length !== 0
                     ?
-                    disease.map(item => (
+                    // eslint-disable-next-line array-callback-return
+                    disease.filter((item)=>{
+                        if(search === ""){
+                            return item
+                        }else if(item.desease_name.toLowerCase().includes(search.toLowerCase())){
+                            return item
+                        }
+                    }).map(item => (
                         <Col xl={4} key={item._id}>
                             <Card>
                                 <Card.Img variant="top" src={item.detail.image !== '' ? `${item.detail.image}` : "https://www.hopkinsmedicine.org/-/media/images/health/1_-conditions/chidrens-health/blounts-disease-teaser.ashx"} />
