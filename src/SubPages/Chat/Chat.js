@@ -2,7 +2,7 @@ import React,{ useState, useEffect } from 'react'
 import Moment from 'react-moment';
 import axios from 'axios';
 import Pusher from 'pusher-js';
-import { Container, Row, Col, Modal } from 'react-bootstrap';
+import { Container, Row, Col, Modal, Spinner } from 'react-bootstrap';
 import './Chat.css'
 import { useProfile } from '../../Pages/Account/Context.Provider';
 import { useHistory } from 'react-router-dom';
@@ -15,6 +15,7 @@ var pusher = new Pusher('a73b7d1b6fcba563eede', {
 function Chat() {
     const {profile} = useProfile();
     const [popup, setpopup] = useState(profile ? false : true);
+    const [loading, setisLoading] = useState(true);
     const [messages,setmessage] = useState([]);
     const [input,setInput] = useState('');
 
@@ -45,12 +46,16 @@ function Chat() {
         try{
            const res = await axios.get('https://lifestylediseases.herokuapp.com/chat');
            setmessage(res.data);
+           setisLoading(false);
         }catch(e){
             console.log(e.message);
         }
     }
     useEffect(()=>{
        getmessage();
+       return ()=>{
+           setmessage([]);
+       }
     },[]);
 
     // Channel Set for Pusher Realtime event Listner
@@ -79,14 +84,23 @@ function Chat() {
                 <h3>Comman Chat</h3>
                 <p>Chat With Other Pepoles Know</p>
             </Row>
-            <Row className="chat_roome_window mb-5">
+            {
+                loading 
+                ?
+                <Container style={{height:"50vh"}} className="d-flex justify-content-center align-items-center">
+                    <Row >
+                            <Spinner animation="grow" variant="info" />
+                    </Row>
+                </Container>
+                :
+                <Row className="chat_roome_window mb-5">
                 {
                   messages.map(message=>(
                         <Col key={message._id} xl={12} className={message.user_id === profile._id ? "chat_messages" : "chat_messages" }>
-                            {message.name === profile.name ?
+                            {message.user_id === profile._id ?
                                 ''
                                 :
-                                <p>{message.name}</p>
+                                <p>{message.user_id}</p>
                             }
                             {
                                 message.user_id === profile._id ?
@@ -100,7 +114,8 @@ function Chat() {
                         </Col> 
                   ))
                 }
-            </Row>
+                </Row>
+            }
             <Row>
                <Col xl={12} className="send_row_message">
                     <input className="chat_inputFiled" value={input} type="text" placeholder="Type a message..." onChange={e=>setInput(e.target.value)}/>
