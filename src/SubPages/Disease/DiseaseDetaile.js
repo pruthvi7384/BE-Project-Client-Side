@@ -4,15 +4,15 @@ import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import './Disease.css'
 import SubNavigationBar from '../../Components/SubNavigationBar/SubNavigationBar';
 import Quetion from './Quetion';
+
 import Feedback from './Feedback';
 import axios from 'axios';
 import Comments from './Comments';
 function DiseaseDetailes({diseaseinfo}) {
-
     const [isloading, setIsloading] = useState(true);
     const [doctorName, setDoctorName] = useState([]);
     const [doctorInfo, setDoctorInfo] = useState([]);
-    
+
     useEffect(()=>{
         const getDoctorName = async ()=>{
                 const res = await axios.get(`https://lifestylediseases.herokuapp.com/profile/${diseaseinfo.doctor_id}`);
@@ -35,8 +35,6 @@ function DiseaseDetailes({diseaseinfo}) {
             setDoctorInfo();
         }
     },[diseaseinfo.doctor_id]);
-
-    
 
     if(isloading){
         return(
@@ -61,7 +59,7 @@ function DiseaseDetailes({diseaseinfo}) {
                 <p>Disease <span> {diseaseinfo.desease_name ? diseaseinfo.desease_name : ''} </span> Information</p>
             </Row>
             <Row className="disease_info">
-                <Col xl={6}>
+                <Col xl={6} className="mb-2">
                     <img className="disease_image" src={diseaseinfo.detail.image !== '' ? `${diseaseinfo.detail.image}` : "https://www.hopkinsmedicine.org/-/media/images/health/1_-conditions/chidrens-health/blounts-disease-teaser.ashx"} alt="" />
                 </Col>
                 <Col xl={6}>
