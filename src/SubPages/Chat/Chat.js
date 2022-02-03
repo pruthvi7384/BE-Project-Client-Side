@@ -100,7 +100,7 @@ function Chat() {
                             {message.user_id === profile._id ?
                                 ''
                                 :
-                                <p>{message.user_id}</p>
+                                <p>{message.name}</p>
                             }
                             {
                                 message.user_id === profile._id ?
