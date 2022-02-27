@@ -12,9 +12,10 @@ import Diseases from './Pages/Diseases/Diseases';
 import Errore from './Pages/Errore/Errore';
 import Home from './Pages/Home/Home';
 import Profile from './Pages/Profile/Profile';
-import SymtomsChecker from './Pages/SymtomsChecker/index.js';
+import SymtomsChecker from './Pages/symtomschecker/index.js';
 import Chat from './SubPages/Chat/Chat';
 import Disease from './SubPages/Disease/Disease';
+import HomePage from './SymtomChaker/components/HomePage';
  
 
 function App() {
@@ -34,6 +35,11 @@ function App() {
           <Route exact path="/symptomschecker">
                 <NavigationBar path="/symptomschecker"/>
                 <SymtomsChecker/>
+                <Footer/>
+          </Route>
+          <Route exact path="/symptomschecker/prediction">
+                <NavigationBar path="/symptomschecker"/>
+                <HomePage/>
                 <Footer/>
           </Route>
           <Route exact path="/diseases">
