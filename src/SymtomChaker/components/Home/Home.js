@@ -15,7 +15,7 @@ const Home = (props) => {
         <form class="usa-form TermsCheckbox">
           <div class="usa-checkbox">
             <input checked={props.isChecked} onChange={props.checked} class="usa-checkbox__input" id="truth" type="checkbox" name="historical-figures-1" value="truth" />
-            <label class="usa-checkbox__label" for="truth">
+            <label class="usa-checkbox__label" htmlFor="truth">
               &nbsp;&nbsp;I agree to the DHILab terms and conditions
             </label>
           </div>

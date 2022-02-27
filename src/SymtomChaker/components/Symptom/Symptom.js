@@ -141,7 +141,7 @@ class Symptom extends Component {
     });
     // console.log(symps, "symps");
     return (
-      <div id="#Symptoms" className="grid-row width-full">
+      <div id="Symptoms" className="grid-row width-full">
         <div className="col-12 tablet:grid-col-5">
           {/* <div className="grid-row"> */}
           <input

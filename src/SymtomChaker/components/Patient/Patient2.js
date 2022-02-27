@@ -51,6 +51,7 @@ class Patient2 extends Component {
     };
     // eslint-disable-next-line default-case
     // console.log(e.target.className);
+    // eslint-disable-next-line default-case
     switch (e.target.className) {
       case "usa-radio__input I_am_overweight_or_obese":
         this.setState(
@@ -149,7 +150,7 @@ class Patient2 extends Component {
                 value={"Yes"}
                 name="overweight"
               />
-              <label className="usa-radio__label" for="overweight_Yes">
+              <label className="usa-radio__label" htmlFor="overweight_Yes">
                 Yes
               </label>
             </div>
@@ -163,7 +164,7 @@ class Patient2 extends Component {
                 value={"No"}
                 name="overweight"
               />
-              <label className="usa-radio__label" for="overweight_No">
+              <label className="usa-radio__label" htmlFor="overweight_No">
                 No
               </label>
             </div>
@@ -177,7 +178,7 @@ class Patient2 extends Component {
                 value={"Patient doesn't know"}
                 name="overweight"
               />
-              <label className="usa-radio__label" for="overweight_doesno">
+              <label className="usa-radio__label" htmlFor="overweight_doesno">
                 I don't know
               </label>
             </div>
@@ -196,7 +197,7 @@ class Patient2 extends Component {
                 value={"Yes"}
                 name="cigarettes"
               />
-              <label className="usa-radio__label" for="cigarettes_yes">
+              <label className="usa-radio__label" htmlFor="cigarettes_yes">
                 Yes
               </label>
             </div>
@@ -210,7 +211,7 @@ class Patient2 extends Component {
                 value={"No"}
                 name="cigarettes"
               />
-              <label className="usa-radio__label" for="cigarettes_no">
+              <label className="usa-radio__label" htmlFor="cigarettes_no">
                 No
               </label>
             </div>
@@ -224,7 +225,7 @@ class Patient2 extends Component {
                 value={"Patient doesn't know"}
                 name="cigarettes"
               />
-              <label className="usa-radio__label" for="cigarettes_doesno">
+              <label className="usa-radio__label" htmlFor="cigarettes_doesno">
                 I don't know
               </label>
             </div>
@@ -243,7 +244,7 @@ class Patient2 extends Component {
                 value={"Yes"}
                 name="injured"
               />
-              <label className="usa-radio__label" for="injured_yes">
+              <label className="usa-radio__label" htmlFor="injured_yes">
                 Yes
               </label>
             </div>
@@ -257,7 +258,7 @@ class Patient2 extends Component {
                 value={"No"}
                 name="injured"
               />
-              <label className="usa-radio__label" for="injured_no">
+              <label className="usa-radio__label" htmlFor="injured_no">
                 No
               </label>
             </div>
@@ -271,7 +272,7 @@ class Patient2 extends Component {
                 value={"Patient doesn't know"}
                 name="injured"
               />
-              <label className="usa-radio__label" for="injured_doesno">
+              <label className="usa-radio__label" htmlFor="injured_doesno">
                 I don't know
               </label>
             </div>
@@ -290,7 +291,7 @@ class Patient2 extends Component {
                 value={"Yes"}
                 name="cholesterol"
               />
-              <label className="usa-radio__label" for="cholesterol_yes">
+              <label className="usa-radio__label" htmlFor="cholesterol_yes">
                 Yes
               </label>
             </div>
@@ -304,7 +305,7 @@ class Patient2 extends Component {
                 value={"No"}
                 name="cholesterol"
               />
-              <label className="usa-radio__label" for="cholesterol_no">
+              <label className="usa-radio__label" htmlFor="cholesterol_no">
                 No
               </label>
             </div>
@@ -318,7 +319,7 @@ class Patient2 extends Component {
                 value={"Patient doesn't know"}
                 name="cholesterol"
               />
-              <label className="usa-radio__label" for="cholesterol_doesno">
+              <label className="usa-radio__label" htmlFor="cholesterol_doesno">
                 I don't know
               </label>
             </div>
@@ -337,7 +338,7 @@ class Patient2 extends Component {
                 value={"Yes"}
                 name="hypertensionl"
               />
-              <label className="usa-radio__label" for="hypertension_yes">
+              <label className="usa-radio__label" htmlFor="hypertension_yes">
                 Yes
               </label>
             </div>
@@ -351,7 +352,7 @@ class Patient2 extends Component {
                 value={"No"}
                 name="hypertensionl"
               />
-              <label className="usa-radio__label" for="hypertension_no">
+              <label className="usa-radio__label" htmlFor="hypertension_no">
                 No
               </label>
             </div>
@@ -365,7 +366,7 @@ class Patient2 extends Component {
                 value={"Patient doesn't know"}
                 name="hypertensionl"
               />
-              <label className="usa-radio__label" for="hypertension_doesno">
+              <label className="usa-radio__label" htmlFor="hypertension_doesno">
                 I don't know
               </label>
             </div>
@@ -384,13 +385,13 @@ class Patient2 extends Component {
                 value={"Yes"}
                 name="diabetes"
               />
-              <label className="usa-radio__label" for="diabetes_yes">
+              <label className="usa-radio__label" htmlFor="diabetes_yes">
                 Yes
               </label>
             </div>
             <div className="usa-radio margin-x-1">
               <input className="usa-radio__input I have diabetes" onChange={this.handleOnChange} id="diabetes_no" type="radio" checked={this.state.question_6 === "No"} value={"No"} name="diabetes" />
-              <label className="usa-radio__label" for="diabetes_no">
+              <label className="usa-radio__label" htmlFor="diabetes_no">
                 No
               </label>
             </div>
@@ -404,7 +405,7 @@ class Patient2 extends Component {
                 value={"Patient doesn't know"}
                 name="diabetes"
               />
-              <label className="usa-radio__label" for="diabetes_doesno">
+              <label className="usa-radio__label" htmlFor="diabetes_doesno">
                 I don't know
               </label>
             </div>

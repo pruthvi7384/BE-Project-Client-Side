@@ -53,7 +53,6 @@ class HomePage extends Component {
         return this.setState({
           current_page: "Patient",
           tab_progress: 50,
-          // home_nav_icon: <CheckIcon className={"check-icon"} style={{ color: "white!important" }} />,
           home_nav_value: true,
           button_is_disabled: false,
           home_button_checked: false,
