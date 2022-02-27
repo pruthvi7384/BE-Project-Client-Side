@@ -12,7 +12,7 @@ import Diseases from './Pages/Diseases/Diseases';
 import Errore from './Pages/Errore/Errore';
 import Home from './Pages/Home/Home';
 import Profile from './Pages/Profile/Profile';
-import SymtomsChecker from './Pages/symtomschecker/index.js';
+import SymtomsChecker from './Pages/checker/index.js';
 import Chat from './SubPages/Chat/Chat';
 import Disease from './SubPages/Disease/Disease';
 import HomePage from './SymtomChaker/components/HomePage';
